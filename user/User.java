@@ -9,13 +9,13 @@ public class User extends User_Operation {
     Scanner scanner = new Scanner(System.in);
     String sql;
 
-    public String id;
-    public String usr_name;
-    public String email;
-    public String role;
-    public String pswd;
-    public String address;
-    public String reg_date;
+    public String id = "";
+    public String usr_name = "";
+    public String email = "";
+    public String role = "";
+    public String pswd = "";
+    public String address = "";
+    public String reg_date = "";
 
     public boolean signup(){
         System.out.print("\nEnter username: ");
@@ -42,7 +42,7 @@ public class User extends User_Operation {
             System.out.println("Successfully registered!");
             return true;
         } else {
-            System.out.println("The alrady exising users!");
+            System.out.println("This user are alrady exist!");
             return false;
         }
     }

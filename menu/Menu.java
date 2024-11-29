@@ -41,18 +41,10 @@ public class Menu {
                 break;
 
             case "2":
-                user.signup();
-                if (user.is_logined()) {
-                    if (user.usr_info("role").equalsIgnoreCase("admin")) {
-                        Admin admin = new Admin(user.id, user.usr_name, user.email, user.pswd, user.role, user.address, user.reg_date);
-                        admin.menu();
-                    } else if (user.usr_info("role").equalsIgnoreCase("user")) {
-                        Customer cust = new Customer(user.id, user.usr_name, user.email, user.pswd, user.role, user.address, user.reg_date);
-                        cust.menu();
-                    } else {
-                        System.out.println(user.usr_info("role"));
-                    }
-                } 
+                if (user.signup()) {
+                    Customer cust = new Customer(user.id, user.usr_name, user.email, user.pswd, user.role, user.address, user.reg_date);
+                    cust.menu();
+                }
                 break;
 
             case "3":

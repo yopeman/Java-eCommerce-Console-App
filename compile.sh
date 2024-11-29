@@ -28,4 +28,4 @@ echo "Running The Program!"
 echo ""
 clear
 
-java Run
+java Main

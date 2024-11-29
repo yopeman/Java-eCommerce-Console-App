@@ -3,7 +3,7 @@
 import menu.Menu;
 import database.*;
 
-public class Run {
+public class Main {
     public static void main(String[] args){
         System.out.println("Starting ...\n");
         DB.start();

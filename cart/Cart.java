@@ -16,6 +16,10 @@ public class Cart {
     }
 
     public void cart_menu(){
+        if (carts.size() == 0) {
+            System.out.println("No product are selected!");
+            return;
+        }
         show_cart();
 
         System.out.println("Select one of them:");
@@ -31,7 +35,7 @@ public class Cart {
             case "1":
                 System.out.print("Enter product id for remove: "); 
                 String key = scanner.nextLine();
-                carts.remove(key);  
+                carts.remove(key);
                 break;
 
             case "2":
@@ -40,15 +44,17 @@ public class Cart {
 
             case "3":
                 buy_cart();
-                break;
+                return;
 
             default:
-                System.out.println("Envalid input: "+option);
+                return;
         }
+        cart_menu();
     }
 
     public void add_to_cart(){
-        String prdct_id, quantity;
+        String prdct_id = "";
+        String quantity = "";
 
         do {
             System.out.print("Enter product id for add to cart: ");
@@ -71,28 +77,68 @@ public class Cart {
     }
 
     public void show_cart(){
-        String id_list = "";
-        int index = 0;
 
-        for(String i : carts.keySet()){
-            id_list += "'"+ carts.get(i) +"'";
-
-            if (index < (carts.size() - 1)) {
-                id_list += ", ";
-            }
-
-            index ++;
+        String[] header = {"id", "prdct_name", "category", "price", "quantity", "cost"};
+        for (String i : header) {
+            System.out.printf("%-20s",i);
         }
 
-        String sql = "select prdct_name, category, price from product where id in ("+ id_list +")";
-        DB.display_query(sql, "%-10s", 30);
+        System.out.println();
+        System.out.print(new String(new char[30]).replace("\0", "-"));
+        System.out.println();
+        
+        for (String prdct_id : carts.keySet()) {
+            sql = "select id, prdct_name, category, price from product where id='"+ prdct_id +"'";
+            HashMap <String,String> result = new HashMap <String,String>();
+            result = DB.select_query(sql);
+            Double total_price = 0.00d;
+
+            System.out.printf("%-20s",result.get("id"));
+            System.out.printf("%-20s",result.get("prdct_name"));
+            System.out.printf("%-20s",result.get("category"));
+            System.out.printf("%-20s",result.get("price"));
+            System.out.printf("%-20s",carts.get(prdct_id));
+            total_price = Double.parseDouble(result.get("price")) * Double.parseDouble(carts.get(prdct_id));
+            System.out.printf("%-20s",total_price);
+            System.out.println();
+        }
+        System.out.println("#. Total price: "+total_cart_price());
     }
 
     public void buy_cart(){
-        String single_price;
-        double total_price = 0.00d;
-        double aggregate_price = 0.00d;
+        if (carts.size() != 0) {
+            double total_price = total_cart_price();
+            if (total_price <= Balance.getBalance()) {
+                System.out.print("Do you want to buy the product?[Y/N]: ");
+                String option = scanner.nextLine();
 
+                if (option.trim().toLowerCase().equals("y")) {
+                    boolean is_inserted = true;
+
+                    for (String prdct_id : carts.keySet()) {
+                        sql = "insert into cart (usr_id,prdct_id,quantity) values ('"+ user_id +"','"+ prdct_id +"','"+ carts.get(prdct_id) +"')";
+                        if (DB.exec_query(sql)) 
+                            is_inserted = false;
+                    }
+
+                    if (is_inserted) {
+                        System.out.println("Successfully ordered! Thanks for choosen us (^_^;)");
+                        carts.clear();
+                    } else 
+                        System.out.println("Sorry order product are faild!");
+
+                } else 
+                    System.out.println("\n\n\n=============\n\n\n");
+                
+            } else 
+                System.out.println("Your money are insufficent!");
+        } else 
+            System.out.println("No product are selected!");
+    }
+
+    public double total_cart_price(){
+        double total_price, aggregate_price = 0.00d;
+        String single_price;
         if (carts.size() != 0) {
             for (String prdct_id : carts.keySet()) {
                 sql = "select price from product where id='"+ prdct_id +"'";
@@ -103,14 +149,8 @@ public class Cart {
                 total_price = Double.parseDouble(single_price) * Double.parseDouble(carts.get(prdct_id));
                 aggregate_price += total_price;
             }
-
-            if (aggregate_price <= Balance.getBalance()) {
-                for (String prdct_id : carts.keySet()) {
-                    sql = "insert into cart (usr_id,prdct_id,quantity) values ('"+ user_id +"','"+ prdct_id +"','"+ carts.get(prdct_id) +"')";
-                }
-            }
-        } else 
-            System.out.println("No product are selected!");
+        }
+        return aggregate_price;
     }
 
     public void cart_history(){
