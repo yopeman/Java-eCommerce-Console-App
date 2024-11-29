@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import database.DB;
-import user.User;
 
 public class Cart {
     Scanner scanner = new Scanner(System.in);
