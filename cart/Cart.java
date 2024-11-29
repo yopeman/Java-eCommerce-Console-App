@@ -10,6 +10,11 @@ public class Cart {
     Scanner scanner = new Scanner(System.in);
     static HashMap<String,String> carts = new HashMap<String,String>();
     String sql;
+    String user_id;
+
+    public Cart(String user_id){
+        this.user_id = user_id;
+    }
 
     public void cart_menu(){
         show_cart();
@@ -100,9 +105,9 @@ public class Cart {
                 aggregate_price += total_price;
             }
 
-            if (aggregate_price <= Balance.money) {
+            if (aggregate_price <= Balance.getBalance()) {
                 for (String prdct_id : carts.keySet()) {
-                    sql = "insert into cart (usr_id,prdct_id,quantity) values ('"+ User.id +"','"+ prdct_id +"','"+ carts.get(prdct_id) +"')";
+                    sql = "insert into cart (usr_id,prdct_id,quantity) values ('"+ user_id +"','"+ prdct_id +"','"+ carts.get(prdct_id) +"')";
                 }
             }
         } else 

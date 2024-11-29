@@ -9,7 +9,7 @@ public class User extends User_Operation {
     Scanner scanner = new Scanner(System.in);
     String sql;
 
-    public static String id;
+    public String id;
     public String usr_name;
     public String email;
     public String role;
@@ -167,7 +167,7 @@ public class User extends User_Operation {
                 address = temp;
             }
 
-            sql = "update user set usr_name='"+usr_name+"', pswd='"+pswd+"', address='"+address+"'";
+            sql = "update user set usr_name='"+usr_name+"', pswd='"+pswd+"', address='"+address+"' where id='"+id+"'";
             if (DB.exec_query(sql)) {
                 System.out.println("Information are successfully change!");
             } else {

@@ -4,11 +4,8 @@ import menu.*;
 import product.Product;
 
 public class Admin extends User implements Menu_List {
-    Product product = new Product();
-    Cart cart = new Cart();
-
-    public Admin(String ids, String usr_name, String email, String pswd, String role, String address, String reg_date){
-        id = ids;
+    public Admin(String id, String usr_name, String email, String pswd, String role, String address, String reg_date){
+        this.id = id;
         this.usr_name = usr_name;
         this.email = email;
         this.pswd = pswd;
@@ -17,6 +14,8 @@ public class Admin extends User implements Menu_List {
         this.reg_date = reg_date;
     }
 
+    Product product = new Product();
+    Cart cart = new Cart(this.id);
 
     @Override
     public void menu(){

@@ -7,13 +7,8 @@ import product.Product;
 import cart.*;;
 
 public class Customer extends User implements Menu_List {
-    Scanner scanner = new Scanner(System.in);
-    Product product = new Product();
-    Cart cart = new Cart();
-    Balance balance = new Balance();
-
-    public Customer(String ids, String usr_name, String email, String pswd, String role, String address, String reg_date){
-        id = ids;
+    public Customer(String id, String usr_name, String email, String pswd, String role, String address, String reg_date){
+        this.id = id;
         this.usr_name = usr_name;
         this.email = email;
         this.pswd = pswd;
@@ -21,6 +16,11 @@ public class Customer extends User implements Menu_List {
         this.address = address;
         this.reg_date = reg_date;
     }
+
+    Scanner scanner = new Scanner(System.in);
+    Product product = new Product();
+    Cart cart = new Cart(this.id);
+    Balance balance = new Balance();
 
     @Override
     public void menu(){

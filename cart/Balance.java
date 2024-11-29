@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Balance {
     Scanner scanner = new Scanner(System.in);
-    static double money = 0.00d;
+    private static double money = 0.00d;
 
     public void menu_balance(){
         check_balance();
@@ -34,5 +34,13 @@ public class Balance {
         }
 
         check_balance();
+    }
+
+    public static double getBalance(){
+        return money;
+    }
+
+    public static void setBalance(double money){
+        Balance.money = money;
     }
 }

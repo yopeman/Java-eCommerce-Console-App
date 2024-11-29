@@ -4,7 +4,7 @@ echo "===== Compiling all files ====="
 echo
 
 export CLASSPATH=.:database/sqlite-jdbc-3.47.0.0.jar
-echo "Insert CLASSPATH Of JDBC"
+echo "CLASSPATH Of JDBC Are Inserted!"
 
 javac -classpath $CLASSPATH cart/*.java
 echo "Cart Package Are Compiled!"
