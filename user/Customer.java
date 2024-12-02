@@ -26,7 +26,7 @@ public class Customer extends User implements Menu_List {
     public void menu(){
         Cart cart = new Cart(this.id);
         
-        System.out.println("\n\n\t=== BiT Store (CUSTOMER) (^_^;) ===\n");
+        System.out.println("\n=== BiT Store (CUSTOMER) (^_^;) ===\n");
         System.out.println("Select one of them:");
         System.out.println("1. Product");
         System.out.println("2. Search product");

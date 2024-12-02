@@ -2,8 +2,10 @@ package user;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 import database.DB;
+import menu.Files;
 
 public class User extends User_Operation {
     Scanner scanner = new Scanner(System.in);
@@ -18,21 +20,31 @@ public class User extends User_Operation {
     public String reg_date = "";
 
     public boolean signup(){
-        System.out.print("\nEnter username: ");
-        usr_name = scanner.nextLine();
-        usr_name = usr_name.trim();
+        try{
+            //System.out.print("\nEnter username: ");
+            //usr_name = scanner.nextLine();
+            usr_name = JOptionPane.showInputDialog("Enter username:");
+            usr_name = usr_name.trim();
 
-        System.out.print("Enter email: ");
-        email = scanner.nextLine();
-        email = email.trim();
+            //System.out.print("Enter email: ");
+            //email = scanner.nextLine();
+            email = JOptionPane.showInputDialog("Enter email:");
+            email = email.trim();
 
-        System.out.print("Enter password: ");
-        pswd = scanner.nextLine();
-        pswd = pswd.trim();
+            //System.out.print("Enter password: ");
+            //pswd = scanner.nextLine();
+            pswd = JOptionPane.showInputDialog("Enter password:");
+            pswd = pswd.trim();
 
-        System.out.print("Enter Address: ");
-        address = scanner.nextLine();
-        address = pswd.trim();
+            //System.out.print("Enter Address: ");
+            //address = scanner.nextLine();
+            address = JOptionPane.showInputDialog("Enter address:");
+            address = pswd.trim();
+        } catch(Exception e){
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
+            return false;
+        }
 
         sql = "insert into user (usr_name, email, pswd, address) values ('"+
                 usr_name + "','" + email + "','" + pswd + "','" + address +
@@ -62,7 +74,8 @@ public class User extends User_Operation {
                     return false;
                 }
         } catch (Exception e) {
-                System.out.println("Something is wrong: "+e);
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
                 return false;
         }
         // /////////////////////
@@ -74,13 +87,21 @@ public class User extends User_Operation {
     }
 
     public boolean login(){
-        System.out.print("Enter email: ");
-        email = scanner.nextLine();
-        email = email.trim();
+        try{
+            //System.out.print("Enter email: ");
+            //email = scanner.nextLine();
+            email = JOptionPane.showInputDialog("Enter email:");
+            email = email.trim();
 
-        System.out.print("Enter password: ");
-        pswd = scanner.nextLine();
-        pswd = pswd.trim();
+            //System.out.print("Enter password: ");
+            //pswd = scanner.nextLine();
+            pswd = JOptionPane.showInputDialog("Enter password:");
+            pswd = pswd.trim();
+        } catch(Exception e){
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
+            return false;
+        }
 
         sql = "select count(*) from user where email='" + email + "' and pswd='" + pswd + "'";
 
@@ -107,7 +128,8 @@ public class User extends User_Operation {
                     return false;
                 }
             } catch (Exception e) {
-                System.out.println("Something is wrong: "+e);
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
                 return false;
             }
             

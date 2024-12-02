@@ -12,7 +12,7 @@ public class Menu {
     OS_Control control = new OS_Control();
 
     public void main_menu(){
-        System.out.println("\t=== Welcome to BiT store (^_^;) ===\n");
+        System.out.println("\n=== Welcome to BiT store (^_^;) ===\n");
         System.out.println("Select one of them:");
         System.out.println("1. Login");
         System.out.println("2. Sign up");
@@ -30,9 +30,11 @@ public class Menu {
                 if (user.login()) {
                     if (user.usr_info("role").equalsIgnoreCase("admin")) {
                         Admin admin = new Admin(user.id, user.usr_name, user.email, user.pswd, user.role, user.address, user.reg_date);
+                        control.clear_scrn();
                         admin.menu();
                     } else if (user.usr_info("role").equalsIgnoreCase("user")) {
                         Customer cust = new Customer(user.id, user.usr_name, user.email, user.pswd, user.role, user.address, user.reg_date);
+                        control.clear_scrn();
                         cust.menu();
                     } else {
                         System.out.println(user.usr_info("role"));
@@ -44,6 +46,7 @@ public class Menu {
             case "2":
                 if (user.signup()) {
                     Customer cust = new Customer(user.id, user.usr_name, user.email, user.pswd, user.role, user.address, user.reg_date);
+                    control.clear_scrn();
                     cust.menu();
                 }
                 break;

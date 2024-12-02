@@ -23,7 +23,8 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1).inheritIO().start().waitFor();
             } catch (Exception e) {
-                System.out.println("Something is wrong: "+e);
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
             }
         } 
         
@@ -31,7 +32,8 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1).inheritIO().start().waitFor();
             } catch (Exception e) {
-                System.out.println("Something is wrong: "+e);
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
             }
         } else {
             System.out.println("Something is wrong: " + "Unknown Operating System!");
@@ -45,7 +47,8 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1, cmd2).inheritIO().start().waitFor();
             } catch (Exception e) {
-                System.out.println("Something is wrong: "+e);
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
             }
         } 
         
@@ -53,7 +56,80 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1, cmd2).inheritIO().start().waitFor();
             } catch (Exception e) {
-                System.out.println("Something is wrong: "+e);
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
+            }
+        } else {
+            System.out.println("Something is wrong: " + "Unknown Operating System!");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean cmd_exec(String cmd1, String cmd2, String cmd3){
+        if (os_name.equals("window")) {
+            try {
+                new ProcessBuilder("cmd", "/c", cmd1, cmd2, cmd3).inheritIO().start().waitFor();
+            } catch (Exception e) {
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
+            }
+        } 
+        
+        else if (os_name.equals("linux")) {
+            try {
+                new ProcessBuilder(cmd1, cmd2, cmd3).inheritIO().start().waitFor();
+            } catch (Exception e) {
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
+            }
+        } else {
+            System.out.println("Something is wrong: " + "Unknown Operating System!");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean cmd_exec(String cmd1, String cmd2, String cmd3, String cmd4){
+        if (os_name.equals("window")) {
+            try {
+                new ProcessBuilder("cmd", "/c", cmd1, cmd2, cmd3, cmd4).inheritIO().start().waitFor();
+            } catch (Exception e) {
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
+            }
+        } 
+        
+        else if (os_name.equals("linux")) {
+            try {
+                new ProcessBuilder(cmd1, cmd2, cmd3, cmd4).inheritIO().start().waitFor();
+            } catch (Exception e) {
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
+            }
+        } else {
+            System.out.println("Something is wrong: " + "Unknown Operating System!");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean cmd_exec(String cmd1, String cmd2, String cmd3, String cmd4, String cmd5){
+        if (os_name.equals("window")) {
+            try {
+                new ProcessBuilder("cmd", "/c", cmd1, cmd2, cmd3, cmd4, cmd5).inheritIO().start().waitFor();
+            } catch (Exception e) {
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
+            }
+        } 
+        
+        else if (os_name.equals("linux")) {
+            try {
+                new ProcessBuilder(cmd1, cmd2, cmd3, cmd4, cmd5).inheritIO().start().waitFor();
+            } catch (Exception e) {
+                //System.out.println("Something is wrong: "+e);
+                Files.write_log_file(e);
             }
         } else {
             System.out.println("Something is wrong: " + "Unknown Operating System!");

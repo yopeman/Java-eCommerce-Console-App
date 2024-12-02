@@ -3,6 +3,8 @@ package database;
 import java.sql.*;
 import java.util.HashMap;
 
+import menu.Files;
+
 public class DB {
     final static String db_url = "jdbc:sqlite:eCommerce.db";
 
@@ -52,7 +54,8 @@ public class DB {
             stmt.execute(sql);
             return true;
         } catch (Exception e){
-            System.out.println("Something is wrong: "+e);
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
             return false;
         }
     }
@@ -76,7 +79,8 @@ public class DB {
 
             return row;
         } catch(Exception e){
-            System.out.println("Something is wrong: "+e);
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
             return null;
         }
     }
@@ -93,7 +97,8 @@ public class DB {
                     return 0;
                 }
         } catch(Exception e){
-            System.out.println("Something is wrong: "+e);
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
             return 0;
         }
     }
@@ -124,7 +129,8 @@ public class DB {
                 System.out.println();
             }
         } catch(Exception e){
-            System.out.println("Something is wrong: "+e);
+            //System.out.println("Something is wrong: "+e);
+            Files.write_log_file(e);
         }
     
     }

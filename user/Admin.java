@@ -20,7 +20,7 @@ public class Admin extends User implements Menu_List {
     public void menu(){
         Cart cart = new Cart(this.id);
 
-        System.out.println("\t=== BiT Store (ADMIN) (^_^;) ===\n");
+        System.out.println("\n=== BiT Store (ADMIN) (^_^;) ===\n");
         System.out.println("Select one of them:");
         System.out.println("1. Users");
         System.out.println("2. Products");
