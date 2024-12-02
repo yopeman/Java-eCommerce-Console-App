@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.File;
 
 public class Files {
-    public void f_read(String f_path){
+    public void file_read(String f_path){
         try{
             File fObj = new File(f_path);
             try (Scanner scanner = new Scanner(fObj)) {

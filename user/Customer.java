@@ -19,11 +19,13 @@ public class Customer extends User implements Menu_List {
 
     Scanner scanner = new Scanner(System.in);
     Product product = new Product();
-    Cart cart = new Cart(this.id);
     Balance balance = new Balance();
+    OS_Control control = new OS_Control();
 
     @Override
     public void menu(){
+        Cart cart = new Cart(this.id);
+        
         System.out.println("\n\n\t=== BiT Store (CUSTOMER) (^_^;) ===\n");
         System.out.println("Select one of them:");
         System.out.println("1. Product");
@@ -79,6 +81,7 @@ public class Customer extends User implements Menu_List {
             default:
                 System.out.println("Envalid input: "+option);
         }
+        control.clear_scrn();
         menu();
     }
 

@@ -111,13 +111,13 @@ public class Cart {
             if (total_price <= Balance.getBalance()) {
                 System.out.print("Do you want to buy the product?[Y/N]: ");
                 String option = scanner.nextLine();
-
-                if (option.trim().toLowerCase().equals("y")) {
-                    boolean is_inserted = true;
+                boolean is_inserted = option.trim().toLowerCase().equals("y");
+                
+                if (is_inserted && !user_id.isEmpty()) {
 
                     for (String prdct_id : carts.keySet()) {
                         sql = "insert into cart (usr_id,prdct_id,quantity) values ('"+ user_id +"','"+ prdct_id +"','"+ carts.get(prdct_id) +"')";
-                        if (DB.exec_query(sql)) 
+                        if (!DB.exec_query(sql)) 
                             is_inserted = false;
                     }
 
@@ -127,8 +127,7 @@ public class Cart {
                     } else 
                         System.out.println("Sorry order product are faild!");
 
-                } else 
-                    System.out.println("\n\n\n=============\n\n\n");
+                } 
                 
             } else 
                 System.out.println("Your money are insufficent!");
@@ -154,12 +153,14 @@ public class Cart {
     }
 
     public void cart_history(){
-        sql = "select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by id desc";
-        DB.display_query(sql, "%-10s", 30);
+        System.out.println("Cart history are:");
+        sql = "select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc";
+        DB.display_query(sql, "%-20s", 30);
     }
 
-    public void cart_history(String usr_id){
-        sql = "select p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '"+ usr_id +"' order by id desc";
-        DB.display_query(sql, "%-10s", 30);
+    public void cart_history(String uid){
+        System.out.println("Cart history are:");
+        sql = "select p.prdct_name, p.category, p.price, c.quantity, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '"+ this.user_id +"' order by c.id desc";
+        DB.display_query(sql, "%-20s", 50);
     }
 }

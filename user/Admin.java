@@ -13,12 +13,13 @@ public class Admin extends User implements Menu_List {
         this.address = address;
         this.reg_date = reg_date;
     }
-
     Product product = new Product();
-    Cart cart = new Cart(this.id);
+    OS_Control control = new OS_Control();
 
     @Override
     public void menu(){
+        Cart cart = new Cart(this.id);
+
         System.out.println("\t=== BiT Store (ADMIN) (^_^;) ===\n");
         System.out.println("Select one of them:");
         System.out.println("1. Users");
@@ -39,7 +40,6 @@ public class Admin extends User implements Menu_List {
                 System.out.println("Select one of them:");
                 System.out.println("1. Change user role");
                 System.out.println("2. Delete user");
-                System.out.println("3. To continue enter other key");
                 System.out.print("Enter your option: ");
                 option = scanner.nextLine();
 
@@ -57,7 +57,6 @@ public class Admin extends User implements Menu_List {
                 System.out.println("Select one of them:");
                 System.out.println("1. Change product information");
                 System.out.println("2. Delete product");
-                System.out.println("3. To continue enter other key");
                 System.out.print("Enter your option: ");
                 option = scanner.nextLine();
 
@@ -86,6 +85,7 @@ public class Admin extends User implements Menu_List {
             default:
                 System.out.println("Envalid input: "+option);
         }
+        control.clear_scrn();
         menu();
     }
 

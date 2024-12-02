@@ -8,7 +8,8 @@ import user.User;
 public class Menu {
     Scanner scanner = new Scanner(System.in);
     User user = new User();
-    Files f = new Files();
+    Files files = new Files();
+    OS_Control control = new OS_Control();
 
     public void main_menu(){
         System.out.println("\t=== Welcome to BiT store (^_^;) ===\n");
@@ -48,18 +49,20 @@ public class Menu {
                 break;
 
             case "3":
-                f.f_read("menu/help.txt");
+                files.file_read("menu/help.txt");
                 break;
             case "4":
-                f.f_read("menu/about.txt");
+                files.file_read("menu/about.txt");
                 break;
 
             case "0":
+                System.out.println("Successfully exiting from our system! Thanks for choosen us :)");
                 return;
         
             default:
                 System.out.println("Envalid input: "+option);
         }
+        control.clear_scrn();
         main_menu();
     }
 }

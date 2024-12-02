@@ -40,7 +40,33 @@ public class User extends User_Operation {
 
         if(DB.exec_query(sql)){
             System.out.println("Successfully registered!");
-            return true;
+
+        // /////////////////////
+        sql =  "select * from user where email='" + email + "' limit 1";
+        HashMap<String,String> row = new HashMap<String,String>();
+
+        try{
+            row = DB.select_query(sql);
+            if(row != null){
+                id = row.get("id");
+                usr_name = row.get("usr_name");
+                email = row.get("email");
+                role = row.get("role");
+                address = row.get("address");
+                reg_date = row.get("reg_date");
+                pswd = row.get("pswd");
+                return true;
+
+            } else {
+                System.out.println("User information is not found!");
+                    return false;
+                }
+        } catch (Exception e) {
+                System.out.println("Something is wrong: "+e);
+                return false;
+        }
+        // /////////////////////
+
         } else {
             System.out.println("This user are alrady exist!");
             return false;
@@ -124,7 +150,7 @@ public class User extends User_Operation {
     }
 
     public boolean is_logined(){
-        if (!(usr_name.isEmpty())) 
+        if (!(id.isEmpty())) 
             return true;
         else 
             return false;
@@ -132,6 +158,7 @@ public class User extends User_Operation {
 
     public void profile(){
         System.out.println("\t=== " + usr_name + " Profile (^_^;) ===\n");
+        System.out.println("User ID            : " + id);
         System.out.println("Username           : " + usr_name);
         System.out.println("Email              : " + email);
         System.out.println("Address            : " + address);
