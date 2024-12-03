@@ -1,0 +1,190 @@
+Tue Dec 03 19:42:32 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:42:33 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:42:33 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:42:33 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:42:33 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:43:11 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:43:30 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:43:42 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:31 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:31 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:31 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:31 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:46:31 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:03 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:03 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:03 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:03 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:03 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:45 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:45 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:45 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:45 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:51:45 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:52:24 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:52:41 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:08 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:08 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:08 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:08 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:08 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:57 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:58 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:58 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:58 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:53:58 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:54:11 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:55:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:55:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:55:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:55:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:55:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 19:55:44 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:00:18 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:00:18 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:00:18 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:00:18 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:00:18 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:00:38 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:01:26 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:01:26 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:01:26 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:01:26 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:01:26 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:01:35 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:03:47 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:03:47 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:03:47 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:03:47 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:03:47 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:05:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:05:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:05:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:05:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:05:10 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:19:36 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:19:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:19:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:19:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:19:37 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:20:14 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:20:14 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:20:14 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:20:14 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:20:14 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:20:22 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:21:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:21:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:21:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:21:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:21:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:23:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:23:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:23:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:23:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:23:15 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+
+Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
+

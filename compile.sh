@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 echo "===== Compiling all files ====="
-echo
+echo ""
 
 export CLASSPATH=.:database/sqlite-jdbc-3.47.0.0.jar
 echo "CLASSPATH Of JDBC Are Inserted!"
