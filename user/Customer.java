@@ -2,6 +2,8 @@ package user;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import menu.*;
 import product.Product;
 import cart.*;;
@@ -75,7 +77,8 @@ public class Customer extends User implements Menu_List {
                 break;
 
             case "0":
-                System.out.println("Successfully logouted!");
+                //System.out.println("Successfully logouted!");
+                JOptionPane.showMessageDialog(null, "Successfully logouted!");
                 return;
         
             default:

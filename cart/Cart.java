@@ -3,6 +3,8 @@ package cart;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import database.DB;
 
 public class Cart {
@@ -80,7 +82,7 @@ public class Cart {
 
         String[] header = {"id", "prdct_name", "category", "price", "quantity", "cost"};
         for (String i : header) {
-            System.out.printf("%-20s",i);
+            System.out.printf("%-25s",i);
         }
 
         System.out.println();
@@ -93,13 +95,13 @@ public class Cart {
             result = DB.select_query(sql);
             Double total_price = 0.00d;
 
-            System.out.printf("%-20s",result.get("id"));
-            System.out.printf("%-20s",result.get("prdct_name"));
-            System.out.printf("%-20s",result.get("category"));
-            System.out.printf("%-20s",result.get("price"));
-            System.out.printf("%-20s",carts.get(prdct_id));
+            System.out.printf("%-25s",result.get("id"));
+            System.out.printf("%-25s",result.get("prdct_name"));
+            System.out.printf("%-25s",result.get("category"));
+            System.out.printf("%-25s",result.get("price"));
+            System.out.printf("%-25s",carts.get(prdct_id));
             total_price = Double.parseDouble(result.get("price")) * Double.parseDouble(carts.get(prdct_id));
-            System.out.printf("%-20s",total_price);
+            System.out.printf("%-25s",total_price);
             System.out.println();
         }
         System.out.println("#. Total price: "+total_cart_price());
@@ -122,7 +124,8 @@ public class Cart {
                     }
 
                     if (is_inserted) {
-                        System.out.println("Successfully ordered! Thanks for choosen us (^_^;)");
+                        //System.out.println("Successfully ordered! Thanks for choosen us (^_^;)");
+                        JOptionPane.showMessageDialog(null, "Successfully ordered! \nThanks for choosen us (^_^;)");
                         carts.clear();
                     } else 
                         System.out.println("Sorry order product are faild!");
@@ -155,12 +158,12 @@ public class Cart {
     public void cart_history(){
         System.out.println("Cart history are:");
         sql = "select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc";
-        DB.display_query(sql, "%-20s", 30);
+        DB.display_query(sql, "%-25s", 30);
     }
 
     public void cart_history(String uid){
         System.out.println("Cart history are:");
         sql = "select p.prdct_name, p.category, p.price, c.quantity, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '"+ this.user_id +"' order by c.id desc";
-        DB.display_query(sql, "%-20s", 50);
+        DB.display_query(sql, "%-25s", 50);
     }
 }

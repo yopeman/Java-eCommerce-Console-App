@@ -2,6 +2,8 @@ package cart;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Balance {
     Scanner scanner = new Scanner(System.in);
     private static double money = 0.00d;
@@ -28,7 +30,8 @@ public class Balance {
 
         if (temp > 0) {
             money += temp;
-            System.out.println("Successfully deposit your money!");
+            //System.out.println("Successfully deposit your money!");
+            JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
         } else {
             System.out.println("Sorry! deposit money are faild!");
         }

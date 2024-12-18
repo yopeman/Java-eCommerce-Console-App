@@ -1,6 +1,8 @@
 package menu;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import user.Admin;
 import user.Customer;
 import user.User;
@@ -59,7 +61,8 @@ public class Menu {
                 break;
 
             case "0":
-                System.out.println("Successfully exiting from our system! Thanks for choosen us :)");
+                //System.out.println("Successfully exiting from our system! Thanks for choosen us :)");
+                JOptionPane.showMessageDialog(null, "Successfully exiting from our system! \nThanks for choosen us :)");
                 return;
         
             default:

@@ -51,7 +51,8 @@ public class User extends User_Operation {
               "')";
 
         if(DB.exec_query(sql)){
-            System.out.println("Successfully registered!");
+            //System.out.println("Successfully registered!");
+            JOptionPane.showMessageDialog(null, "Successfully registered!");
 
         // /////////////////////
         sql =  "select * from user where email='" + email + "' limit 1";
@@ -70,7 +71,8 @@ public class User extends User_Operation {
                 return true;
 
             } else {
-                System.out.println("User information is not found!");
+                //System.out.println("User information is not found!");
+                JOptionPane.showMessageDialog(null, "User information is not found!");
                     return false;
                 }
         } catch (Exception e) {
@@ -81,7 +83,8 @@ public class User extends User_Operation {
         // /////////////////////
 
         } else {
-            System.out.println("This user are alrady exist!");
+            //System.out.println("This user are alrady exist!");
+            JOptionPane.showMessageDialog(null, "This user are alrady exist!");
             return false;
         }
     }
@@ -120,7 +123,8 @@ public class User extends User_Operation {
                     reg_date = row.get("reg_date");
                     pswd = row.get("pswd");
 
-                    System.out.println("Successfully logined! :)");
+                    //System.out.println("Successfully logined! :)");
+                    JOptionPane.showMessageDialog(null, "Successfully logined! :)");
                     return true;
 
                 } else {
@@ -134,7 +138,8 @@ public class User extends User_Operation {
             }
             
         } else {
-            System.out.println("Email or password are incorrect!");
+            //System.out.println("Email or password are incorrect!");
+            JOptionPane.showMessageDialog(null, "Email or password are incorrect!");
             return false;
         }
     }
@@ -218,7 +223,8 @@ public class User extends User_Operation {
 
             sql = "update user set usr_name='"+usr_name+"', pswd='"+pswd+"', address='"+address+"' where id='"+id+"'";
             if (DB.exec_query(sql)) {
-                System.out.println("Information are successfully change!");
+                //System.out.println("Information are successfully change!");
+                JOptionPane.showMessageDialog(null, "Successfully information are changed!");
             } else {
                 System.out.println("Change in information are failed!");
             }
@@ -245,9 +251,11 @@ public class User extends User_Operation {
 
         sql = "update user set role='"+temp_role+"' where id='"+temp_id+"'";
         if (DB.exec_query(sql)) {
-            System.out.println("Information are successfully change!");
+            //System.out.println("Information are successfully change!");
+            JOptionPane.showMessageDialog(null, "Successfully information are change!");
         } else {
-            System.out.println("Change in information are failed!");
+            //System.out.println("Change in information are failed!");
+            JOptionPane.showMessageDialog(null, "Change information are failed!");
         }        
     }
 
@@ -260,9 +268,11 @@ public class User extends User_Operation {
 
         sql = "delete from user where id='"+temp_id+"'";
         if (DB.exec_query(sql)) {
-            System.out.println("User are successfully deleted!");
+            //System.out.println("User are successfully deleted!");
+            JOptionPane.showMessageDialog(null, "Successfully user are deleted!");
         } else {
-            System.out.println("User deletion are failed!");
+            //System.out.println("User deletion are failed!");
+            JOptionPane.showMessageDialog(null, "User deletion are failed!");
         }        
     }
 }

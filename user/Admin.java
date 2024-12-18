@@ -1,4 +1,6 @@
 package user;
+import javax.swing.JOptionPane;
+
 import cart.Cart;
 import menu.*;
 import product.Product;
@@ -79,7 +81,8 @@ public class Admin extends User implements Menu_List {
                 break;
 
             case "0":
-                System.out.println("Successfully logouted!");
+                //System.out.println("Successfully logouted!");
+                JOptionPane.showMessageDialog(null, "Successfully logouted!");
                 return;
         
             default:

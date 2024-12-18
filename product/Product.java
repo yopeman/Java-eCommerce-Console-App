@@ -2,6 +2,8 @@ package product;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import database.DB;
 
 public class Product {
@@ -33,7 +35,8 @@ public class Product {
 
         sql = "insert into product (prdct_name,category,desc,price) values ('"+prdct_name+"','"+category+"','"+desc+"','"+price+"')";
         if(DB.exec_query(sql)){
-            System.out.println("Products are successfully inserted!");
+            //System.out.println("Products are successfully inserted!");
+            JOptionPane.showMessageDialog(null, "Successfully product are inserted!");
             return true;
         } else {
             System.out.println("Something are wrong!");
@@ -43,17 +46,17 @@ public class Product {
 
     public void display_category(){
         sql = "select min(id) as id, category from product group by category";
-        DB.display_query(sql, "%-10s", 30);
+        DB.display_query(sql, "%-25s", 30);
     }
 
     public void display_product(){
         sql = "select * from product";
-        DB.display_query(sql, "%-10s", 30);
+        DB.display_query(sql, "%-25s", 30);
     }
 
     public void display_product_by_category(String prdct_id){
         sql = "select * from product where category=(select category from product where id='"+prdct_id+"')";
-        DB.display_query(sql, "%-10s", 30);
+        DB.display_query(sql, "%-25s", 30);
     }
 
     public void delete_product(){
@@ -63,7 +66,8 @@ public class Product {
 
         sql = "delete from product where id='"+prdct_id+"'";
         if (DB.exec_query(sql)) {
-            System.out.println("Product are successfully deleted!");
+            //System.out.println("Product are successfully deleted!");
+            JOptionPane.showMessageDialog(null, "Successfully product are deleted!");
         } else {
             System.out.println("Product deletion are failed!");
         } 
@@ -122,7 +126,8 @@ public class Product {
                 } 
             }
                 
-            System.out.println("Product information are successfully updated!");
+            //System.out.println("Product information are successfully updated!");
+            JOptionPane.showMessageDialog(null, "Successfully product information are updated!");
         }  
     }
 
@@ -132,7 +137,7 @@ public class Product {
 
         
         sql = "select * from product where id like '%"+ search_query +"%' or prdct_name like '%"+ search_query +"%' or category like '%"+ search_query +"%' or price like '%"+ search_query +"%' or desc like '%"+ search_query +"%' or reg_date like '%"+ search_query +"%'";
-        DB.display_query(sql, "%-20s", 30);
+        DB.display_query(sql, "%-25s", 30);
         System.out.println();
     }
 }

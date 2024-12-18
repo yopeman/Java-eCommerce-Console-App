@@ -188,3 +188,23 @@ Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found fo
 
 Tue Dec 03 20:25:52 UTC 2024: java.sql.SQLException: No suitable driver found for jdbc:sqlite:eCommerce.db
 
+Wed Dec 18 08:02:16 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:06:39 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:48:27 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:49:35 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:51:42 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:53:12 UTC 2024: java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.email" is null
+
+Wed Dec 18 08:53:22 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:53:31 UTC 2024: java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.usr_name" is null
+
+Wed Dec 18 08:56:01 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
+Wed Dec 18 08:59:03 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
+
