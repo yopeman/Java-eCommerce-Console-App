@@ -1,12 +1,21 @@
 package cart;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import database.DB;
+
 public class Balance {
     Scanner scanner = new Scanner(System.in);
     private static double money = 0.00d;
+    static String usr_id = "";
+
+    public Balance(String usr_id){
+        Balance.usr_id = usr_id;
+        Balance.money = getBalance();
+    }
 
     public void menu_balance(){
         check_balance();
@@ -25,25 +34,60 @@ public class Balance {
     }
 
     public void deposit_balance(){
-        System.out.print("Enter the amount of money: ");
-        double temp = scanner.nextDouble();
+        //System.out.print("Enter the amount of money: ");
+        //double temp = scanner.nextDouble();
+        double temp;
+        try {
+            temp = Double.parseDouble(JOptionPane.showInputDialog("Enter the amount of money:"));
+        } catch (Exception e) {
+            temp = -1.0;
+        }
 
-        if (temp > 0) {
+        if (temp >= 0) {
             money += temp;
-            //System.out.println("Successfully deposit your money!");
-            JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
+            String sql = "update user set balance='"+money+"'";
+
+            if (DB.exec_query(sql)) {
+                //System.out.println("Successfully deposit your money!");
+                JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
+            } else {
+                //System.out.println("Sorry! deposit money are faild!");
+                JOptionPane.showMessageDialog(null, "Sorry! deposit money are faild!");
+            }
         } else {
-            System.out.println("Sorry! deposit money are faild!");
+            //System.out.println("Sorry! deposit money are faild!");
+            JOptionPane.showMessageDialog(null, "Sorry! you inter invalid amount of money!");
         }
 
         check_balance();
     }
 
     public static double getBalance(){
+        String sql = "select balance from user where id='"+usr_id+"'";
+        HashMap <String,String> result = new HashMap<String,String>();
+        result = DB.select_query(sql);
+        
+        try {
+            money = Double.parseDouble(result.get("balance"));
+        } catch (Exception e) {
+            money = 0.0;
+        }
+        
         return money;
     }
 
-    public static void setBalance(double money){
-        Balance.money = money;
+    public static void withdraw(double money){
+        if (Balance.money >= money) {
+            Balance.money -= money;
+            String sql = "update user set balance='"+money+"'";
+            
+            if (DB.exec_query(sql)) {
+                JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Sorry! deposit money are faild!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Your money are insufficent!");
+        }
     }
 }

@@ -46,9 +46,9 @@ public class User extends User_Operation {
             return false;
         }
 
-        sql = "insert into user (usr_name, email, pswd, address) values ('"+
+        sql = "insert into user (usr_name, email, pswd, address, balance) values ('"+
                 usr_name + "','" + email + "','" + pswd + "','" + address +
-              "')";
+              "', 100.0)";
 
         if(DB.exec_query(sql)){
             //System.out.println("Successfully registered!");
@@ -232,8 +232,8 @@ public class User extends User_Operation {
     }
 
     public void display_all_user(){
-        sql = "select id,usr_name,email,role,address,reg_date from user";
-        DB.display_query(sql, "%-25s", 145);
+        sql = "select id,usr_name,email,role,balance,address,reg_date from user";
+        DB.display_query(sql, "%-20s", 145);
     }
 
     public void change_user_role(){

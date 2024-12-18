@@ -1,12 +1,10 @@
 package user;
 
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 import menu.*;
 import product.Product;
-import cart.*;;
+import cart.*;
 
 public class Customer extends User implements Menu_List {
     public Customer(String id, String usr_name, String email, String pswd, String role, String address, String reg_date){
@@ -19,14 +17,12 @@ public class Customer extends User implements Menu_List {
         this.reg_date = reg_date;
     }
 
-    Scanner scanner = new Scanner(System.in);
-    Product product = new Product();
-    Balance balance = new Balance();
-    OS_Control control = new OS_Control();
-
     @Override
     public void menu(){
         Cart cart = new Cart(this.id);
+        Product product = new Product();
+        Balance balance = new Balance(id);
+        OS_Control control = new OS_Control();
         
         System.out.println("\n=== BiT Store (CUSTOMER) (^_^;) ===\n");
         System.out.println("Select one of them:");

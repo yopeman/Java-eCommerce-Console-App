@@ -46,17 +46,17 @@ public class Product {
 
     public void display_category(){
         sql = "select min(id) as id, category from product group by category";
-        DB.display_query(sql, "%-25s", 30);
+        DB.display_query(sql, "%-20s", 30);
     }
 
     public void display_product(){
         sql = "select * from product";
-        DB.display_query(sql, "%-25s", 30);
+        DB.display_query(sql, "%-20s", 30);
     }
 
     public void display_product_by_category(String prdct_id){
         sql = "select * from product where category=(select category from product where id='"+prdct_id+"')";
-        DB.display_query(sql, "%-25s", 30);
+        DB.display_query(sql, "%-20s", 109);
     }
 
     public void delete_product(){
@@ -137,7 +137,7 @@ public class Product {
 
         
         sql = "select * from product where id like '%"+ search_query +"%' or prdct_name like '%"+ search_query +"%' or category like '%"+ search_query +"%' or price like '%"+ search_query +"%' or desc like '%"+ search_query +"%' or reg_date like '%"+ search_query +"%'";
-        DB.display_query(sql, "%-25s", 30);
+        DB.display_query(sql, "%-20s", 109);
         System.out.println();
     }
 }

@@ -19,7 +19,8 @@ public class Cart {
 
     public void cart_menu(){
         if (carts.size() == 0) {
-            System.out.println("No product are selected!");
+            //System.out.println("No product are selected!");
+            JOptionPane.showMessageDialog(null, "No product are selected!");
             return;
         }
         show_cart();
@@ -38,10 +39,12 @@ public class Cart {
                 System.out.print("Enter product id for remove: "); 
                 String key = scanner.nextLine();
                 carts.remove(key);
+                JOptionPane.showMessageDialog(null, "Successfully product are removed!");
                 break;
 
             case "2":
                 carts.clear();
+                JOptionPane.showMessageDialog(null, "Successfully cart are cleared!");
                 break;
 
             case "3":
@@ -82,11 +85,11 @@ public class Cart {
 
         String[] header = {"id", "prdct_name", "category", "price", "quantity", "cost"};
         for (String i : header) {
-            System.out.printf("%-25s",i);
+            System.out.printf("%-20s",i);
         }
 
         System.out.println();
-        System.out.print(new String(new char[30]).replace("\0", "-"));
+        System.out.print(new String(new char[105]).replace("\0", "-"));
         System.out.println();
         
         for (String prdct_id : carts.keySet()) {
@@ -95,13 +98,19 @@ public class Cart {
             result = DB.select_query(sql);
             Double total_price = 0.00d;
 
-            System.out.printf("%-25s",result.get("id"));
-            System.out.printf("%-25s",result.get("prdct_name"));
-            System.out.printf("%-25s",result.get("category"));
-            System.out.printf("%-25s",result.get("price"));
-            System.out.printf("%-25s",carts.get(prdct_id));
-            total_price = Double.parseDouble(result.get("price")) * Double.parseDouble(carts.get(prdct_id));
-            System.out.printf("%-25s",total_price);
+            System.out.printf("%-20s",result.get("id"));
+            System.out.printf("%-20s",result.get("prdct_name"));
+            System.out.printf("%-20s",result.get("category"));
+            System.out.printf("%-20s",result.get("price"));
+            System.out.printf("%-20s",carts.get(prdct_id));
+            
+            try{
+                total_price = Double.parseDouble(result.get("price")) * Double.parseDouble(carts.get(prdct_id));
+            } catch (Exception e) {
+                total_price = 0.0;
+            }
+
+            System.out.printf("%-20s",total_price);
             System.out.println();
         }
         System.out.println("#. Total price: "+total_cart_price());
@@ -111,9 +120,10 @@ public class Cart {
         if (carts.size() != 0) {
             double total_price = total_cart_price();
             if (total_price <= Balance.getBalance()) {
-                System.out.print("Do you want to buy the product?[Y/N]: ");
-                String option = scanner.nextLine();
-                boolean is_inserted = option.trim().toLowerCase().equals("y");
+                //System.out.print("Do you want to buy the product?[Y/N]: ");
+                //String option = scanner.nextLine();
+                //boolean is_inserted = option.trim().toLowerCase().equals("y");
+                boolean is_inserted = JOptionPane.showConfirmDialog(null,  "Do you want to buy the product?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0;
                 
                 if (is_inserted && !user_id.isEmpty()) {
 
@@ -133,9 +143,11 @@ public class Cart {
                 } 
                 
             } else 
-                System.out.println("Your money are insufficent!");
+                //System.out.println("Your money are insufficent!");
+                JOptionPane.showMessageDialog(null, "Your money are insufficent!");
         } else 
-            System.out.println("No product are selected!");
+            //System.out.println("No product are selected!");
+            JOptionPane.showMessageDialog(null, "No product are selected!");
     }
 
     public double total_cart_price(){
@@ -148,7 +160,13 @@ public class Cart {
                 result = DB.select_query(sql);
 
                 single_price = result.get("price");
-                total_price = Double.parseDouble(single_price) * Double.parseDouble(carts.get(prdct_id));
+                
+                try{
+                    total_price = Double.parseDouble(single_price) * Double.parseDouble(carts.get(prdct_id));
+                } catch (Exception e) {
+                    total_price = 0;
+                }
+
                 aggregate_price += total_price;
             }
         }
@@ -158,12 +176,12 @@ public class Cart {
     public void cart_history(){
         System.out.println("Cart history are:");
         sql = "select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc";
-        DB.display_query(sql, "%-25s", 30);
+        DB.display_query(sql, "%-20s", 70);
     }
 
     public void cart_history(String uid){
         System.out.println("Cart history are:");
         sql = "select p.prdct_name, p.category, p.price, c.quantity, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '"+ this.user_id +"' order by c.id desc";
-        DB.display_query(sql, "%-25s", 50);
+        DB.display_query(sql, "%-20s", 89);
     }
 }

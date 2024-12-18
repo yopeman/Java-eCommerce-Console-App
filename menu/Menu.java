@@ -20,6 +20,7 @@ public class Menu {
         System.out.println("2. Sign up");
         System.out.println("3. Help");
         System.out.println("4. About");
+        System.out.println("5. Log");
         System.out.println("0. Quit");
 
         System.out.print("Enter your choice: ");
@@ -60,9 +61,13 @@ public class Menu {
                 files.file_read("menu/about.txt");
                 break;
 
+            case "5":
+                files.file_read("menu/log.txt");
+                break;
+
             case "0":
                 //System.out.println("Successfully exiting from our system! Thanks for choosen us :)");
-                JOptionPane.showMessageDialog(null, "Successfully exiting from our system! \nThanks for choosen us :)");
+                JOptionPane.showMessageDialog(null, "Successfully exiting from our system! \nThanks for choosen us :)", "BiT Store", JOptionPane.INFORMATION_MESSAGE);
                 return;
         
             default:

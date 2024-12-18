@@ -18,6 +18,7 @@ public class DB {
                     "pswd text not null,"+
                     "address text not null,"+
                     "role text not null default 'user',"+
+                    "balance float,"+
                     "reg_date timestamp default current_timestamp"+
                   ")";
             exec_query(sql);
