@@ -85,7 +85,7 @@ public class Admin extends User implements Menu_List {
                 return;
         
             default:
-                System.out.println("Envalid input: "+option);
+            JOptionPane.showMessageDialog(null, "Sorry! you enter invalid: "+option);
         }
         control.clear_scrn();
         menu();

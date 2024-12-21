@@ -70,7 +70,7 @@ public class Menu {
                 return;
         
             default:
-                System.out.println("Envalid input: "+option);
+                JOptionPane.showMessageDialog(null, "Sorry! you enter invalid: "+option);
         }
         control.clear_scrn();
         main_menu();

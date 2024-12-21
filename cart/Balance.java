@@ -51,7 +51,7 @@ public class Balance {
                 JOptionPane.showMessageDialog(null, "Sorry! deposit money are faild!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Sorry! you inter invalid amount of money!");
+            JOptionPane.showMessageDialog(null, "Sorry! you enter invalid amount of money!");
         }
 
         check_balance();
