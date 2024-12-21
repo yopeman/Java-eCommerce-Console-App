@@ -40,9 +40,13 @@ public class Customer extends User implements Menu_List {
 
         switch (option) {
             case "1":
-                product.display_category();
-                System.out.print("Enter category id: ");
-                String prdct_id = scanner.nextLine();
+            String prdct_id = "";
+                try{
+                    product.display_category();
+                    prdct_id = JOptionPane.showInputDialog("Enter category id:");
+                } catch (Exception e) {
+                    prdct_id = "";
+                }
 
                 if(!prdct_id.isEmpty()){
                     product.display_product_by_category(prdct_id);
@@ -73,7 +77,6 @@ public class Customer extends User implements Menu_List {
                 break;
 
             case "0":
-                //System.out.println("Successfully logouted!");
                 JOptionPane.showMessageDialog(null, "Successfully logouted!");
                 return;
         

@@ -34,11 +34,9 @@ public class Balance {
     }
 
     public void deposit_balance(){
-        //System.out.print("Enter the amount of money: ");
-        //double temp = scanner.nextDouble();
         double temp;
         try {
-            temp = Double.parseDouble(JOptionPane.showInputDialog("Enter the amount of money:"));
+            temp = Double.parseDouble(JOptionPane.showInputDialog("Enter the amount of money:", "0.0"));
         } catch (Exception e) {
             temp = -1.0;
         }
@@ -48,14 +46,11 @@ public class Balance {
             String sql = "update user set balance='"+money+"'";
 
             if (DB.exec_query(sql)) {
-                //System.out.println("Successfully deposit your money!");
                 JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
             } else {
-                //System.out.println("Sorry! deposit money are faild!");
                 JOptionPane.showMessageDialog(null, "Sorry! deposit money are faild!");
             }
         } else {
-            //System.out.println("Sorry! deposit money are faild!");
             JOptionPane.showMessageDialog(null, "Sorry! you inter invalid amount of money!");
         }
 

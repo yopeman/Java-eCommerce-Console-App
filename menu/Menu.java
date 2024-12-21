@@ -40,7 +40,7 @@ public class Menu {
                         control.clear_scrn();
                         cust.menu();
                     } else {
-                        System.out.println(user.usr_info("role"));
+                        JOptionPane.showMessageDialog(null, "Sorry, your role is invalid! \n("+user.usr_info("role")+")");
                     }
                 } 
                 
@@ -66,7 +66,6 @@ public class Menu {
                 break;
 
             case "0":
-                //System.out.println("Successfully exiting from our system! Thanks for choosen us :)");
                 JOptionPane.showMessageDialog(null, "Successfully exiting from our system! \nThanks for choosen us :)", "BiT Store", JOptionPane.INFORMATION_MESSAGE);
                 return;
         

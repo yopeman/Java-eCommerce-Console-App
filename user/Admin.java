@@ -81,7 +81,6 @@ public class Admin extends User implements Menu_List {
                 break;
 
             case "0":
-                //System.out.println("Successfully logouted!");
                 JOptionPane.showMessageDialog(null, "Successfully logouted!");
                 return;
         

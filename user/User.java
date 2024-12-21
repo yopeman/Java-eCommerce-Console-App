@@ -21,27 +21,18 @@ public class User extends User_Operation {
 
     public boolean signup(){
         try{
-            //System.out.print("\nEnter username: ");
-            //usr_name = scanner.nextLine();
             usr_name = JOptionPane.showInputDialog("Enter username:");
             usr_name = usr_name.trim();
 
-            //System.out.print("Enter email: ");
-            //email = scanner.nextLine();
             email = JOptionPane.showInputDialog("Enter email:");
             email = email.trim();
 
-            //System.out.print("Enter password: ");
-            //pswd = scanner.nextLine();
             pswd = JOptionPane.showInputDialog("Enter password:");
             pswd = pswd.trim();
 
-            //System.out.print("Enter Address: ");
-            //address = scanner.nextLine();
             address = JOptionPane.showInputDialog("Enter address:");
             address = pswd.trim();
         } catch(Exception e){
-            //System.out.println("Something is wrong: "+e);
             Files.write_log_file(e);
             return false;
         }
@@ -51,10 +42,8 @@ public class User extends User_Operation {
               "', 100.0)";
 
         if(DB.exec_query(sql)){
-            //System.out.println("Successfully registered!");
             JOptionPane.showMessageDialog(null, "Successfully registered!");
 
-        // /////////////////////
         sql =  "select * from user where email='" + email + "' limit 1";
         HashMap<String,String> row = new HashMap<String,String>();
 
@@ -71,19 +60,15 @@ public class User extends User_Operation {
                 return true;
 
             } else {
-                //System.out.println("User information is not found!");
                 JOptionPane.showMessageDialog(null, "User information is not found!");
                     return false;
                 }
         } catch (Exception e) {
-            //System.out.println("Something is wrong: "+e);
             Files.write_log_file(e);
                 return false;
         }
-        // /////////////////////
 
         } else {
-            //System.out.println("This user are alrady exist!");
             JOptionPane.showMessageDialog(null, "This user are alrady exist!");
             return false;
         }
@@ -91,17 +76,12 @@ public class User extends User_Operation {
 
     public boolean login(){
         try{
-            //System.out.print("Enter email: ");
-            //email = scanner.nextLine();
             email = JOptionPane.showInputDialog("Enter email:");
             email = email.trim();
 
-            //System.out.print("Enter password: ");
-            //pswd = scanner.nextLine();
             pswd = JOptionPane.showInputDialog("Enter password:");
             pswd = pswd.trim();
         } catch(Exception e){
-            //System.out.println("Something is wrong: "+e);
             Files.write_log_file(e);
             return false;
         }
@@ -123,7 +103,6 @@ public class User extends User_Operation {
                     reg_date = row.get("reg_date");
                     pswd = row.get("pswd");
 
-                    //System.out.println("Successfully logined! :)");
                     JOptionPane.showMessageDialog(null, "Successfully logined! :)");
                     return true;
 
@@ -132,13 +111,11 @@ public class User extends User_Operation {
                     return false;
                 }
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
                 return false;
             }
             
         } else {
-            //System.out.println("Email or password are incorrect!");
             JOptionPane.showMessageDialog(null, "Email or password are incorrect!");
             return false;
         }
@@ -198,81 +175,93 @@ public class User extends User_Operation {
         if(option.equals("1")){
             String temp = "";
 
-            System.out.print("Enter username: ");
-            temp = scanner.nextLine();
-            temp = temp.trim();
-            if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
-                usr_name = temp;
-            }
+            try{
+                temp = JOptionPane.showInputDialog("Enter username:", usr_name);
+                temp = temp.trim();
+                if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
+                    usr_name = temp;
+                }
 
+                temp = JOptionPane.showInputDialog("Enter password:");
+                temp = temp.trim();
+                if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
+                    pswd = temp;
+                }
 
-            System.out.print("Enter password: ");
-            temp = scanner.nextLine();
-            temp = temp.trim();
-            if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
-                pswd = temp;
-            }
+                temp = JOptionPane.showInputDialog("Enter address:", address);
+                temp = temp.trim();
+                if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
+                    address = temp;
+                }
 
-
-            System.out.print("Enter Address: ");
-            temp = scanner.nextLine();
-            temp = temp.trim();
-            if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
-                address = temp;
-            }
-
-            sql = "update user set usr_name='"+usr_name+"', pswd='"+pswd+"', address='"+address+"' where id='"+id+"'";
-            if (DB.exec_query(sql)) {
-                //System.out.println("Information are successfully change!");
-                JOptionPane.showMessageDialog(null, "Successfully information are changed!");
-            } else {
-                System.out.println("Change in information are failed!");
+                sql = "update user set usr_name='"+usr_name+"', pswd='"+pswd+"', address='"+address+"' where id='"+id+"'";
+                if (DB.exec_query(sql)) {
+                    JOptionPane.showMessageDialog(null, "Successfully information are changed!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Change information are failed!");
+                }
+                
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Change information are canceld!");
             }
         }
     }
 
     public void display_all_user(){
         sql = "select id,usr_name,email,role,balance,address,reg_date from user";
-        DB.display_query(sql, "%-20s", 145);
+        DB.display_query(sql, "%-20s", 140);
     }
 
     public void change_user_role(){
         String temp_id = "";
         String temp_role = "";
 
-        System.out.print("Enter user id: ");
-        temp_id = scanner.nextLine();
-        temp_id = temp_id.trim();
+        try{
+            temp_id = JOptionPane.showInputDialog("Enter user id:");
+            temp_id = temp_id.trim();
 
+            temp_role = JOptionPane.showInputDialog("Enter role");
+            temp_role = temp_role.trim();
+        } catch (Exception e){
+            temp_id = "";
+            temp_role = "";
+        }
 
-        System.out.print("Enter role: ");
-        temp_role = scanner.nextLine();
-        temp_role = temp_role.trim();
-
-        sql = "update user set role='"+temp_role+"' where id='"+temp_id+"'";
-        if (DB.exec_query(sql)) {
-            //System.out.println("Information are successfully change!");
-            JOptionPane.showMessageDialog(null, "Successfully information are change!");
+        if (!(temp_id.isEmpty() && temp_role.isEmpty())) {
+            sql = "update user set role='"+temp_role+"' where id='"+temp_id+"'";
+            if (DB.exec_query(sql)) {
+                JOptionPane.showMessageDialog(null, "Successfully information are change!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Change information are failed!");
+            } 
         } else {
-            //System.out.println("Change in information are failed!");
-            JOptionPane.showMessageDialog(null, "Change information are failed!");
-        }        
+            JOptionPane.showMessageDialog(null, "You enter wrong information!");
+        }
+
+               
     }
 
     public void delete_user(){
         String temp_id = "";
 
-        System.out.print("Enter user id: ");
-        temp_id = scanner.nextLine();
-        temp_id = temp_id.trim();
-
-        sql = "delete from user where id='"+temp_id+"'";
-        if (DB.exec_query(sql)) {
-            //System.out.println("User are successfully deleted!");
-            JOptionPane.showMessageDialog(null, "Successfully user are deleted!");
+        try{
+            temp_id = JOptionPane.showInputDialog("Enter user id:");
+            temp_id = temp_id.trim();
+        } catch (Exception e) {
+            temp_id = "";
+        }
+        
+        if (!temp_id.isEmpty()) {
+            sql = "delete from user where id='"+temp_id+"'";
+            if (DB.exec_query(sql)) {
+                JOptionPane.showMessageDialog(null, "Successfully user are deleted!");
+            } else {
+                JOptionPane.showMessageDialog(null, "User deletion are failed!");
+            } 
         } else {
-            //System.out.println("User deletion are failed!");
-            JOptionPane.showMessageDialog(null, "User deletion are failed!");
-        }        
+            JOptionPane.showMessageDialog(null, "You enter wrong value!");
+        }
+
+               
     }
 }

@@ -19,7 +19,6 @@ public class Cart {
 
     public void cart_menu(){
         if (carts.size() == 0) {
-            //System.out.println("No product are selected!");
             JOptionPane.showMessageDialog(null, "No product are selected!");
             return;
         }
@@ -36,10 +35,13 @@ public class Cart {
 
         switch (option) {
             case "1":
-                System.out.print("Enter product id for remove: "); 
-                String key = scanner.nextLine();
-                carts.remove(key);
-                JOptionPane.showMessageDialog(null, "Successfully product are removed!");
+                try{
+                    String key = JOptionPane.showInputDialog("Enter product id to remove: ");
+                    carts.remove(key);
+                    JOptionPane.showMessageDialog(null, "Successfully product are removed!");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "You entered wrong value!");
+                }
                 break;
 
             case "2":
@@ -62,21 +64,25 @@ public class Cart {
         String quantity = "";
 
         do {
-            System.out.print("Enter product id for add to cart: ");
-            prdct_id = scanner.nextLine();
+            try{
+                prdct_id = JOptionPane.showInputDialog("Enter product id for add to cart:");
 
-            if(prdct_id.isEmpty())
+                if(prdct_id.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Add to cart are finished!");
+                    break;
+                }
+                    
+                quantity = JOptionPane.showInputDialog("Enter product quantity for add to cart:", 1);
+
+                if (quantity.isEmpty())
+                    quantity = "1";
+
+                if (!prdct_id.isEmpty())
+                    carts.put(prdct_id, quantity);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Add to cart are canceled!");
                 break;
-                
-            System.out.print("Enter product quantity for add to cart: ");
-            quantity = scanner.nextLine();
-
-            if (quantity.isEmpty())
-                quantity = "1";
-
-            if (!prdct_id.isEmpty())
-                carts.put(prdct_id, quantity);
-
+            }
         } while (!prdct_id.isEmpty());
         
     }
@@ -120,9 +126,6 @@ public class Cart {
         if (carts.size() != 0) {
             double total_price = total_cart_price();
             if (total_price <= Balance.getBalance()) {
-                //System.out.print("Do you want to buy the product?[Y/N]: ");
-                //String option = scanner.nextLine();
-                //boolean is_inserted = option.trim().toLowerCase().equals("y");
                 boolean is_inserted = JOptionPane.showConfirmDialog(null,  "Do you want to buy the product?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0;
                 
                 if (is_inserted && !user_id.isEmpty()) {
@@ -134,7 +137,6 @@ public class Cart {
                     }
 
                     if (is_inserted) {
-                        //System.out.println("Successfully ordered! Thanks for choosen us (^_^;)");
                         JOptionPane.showMessageDialog(null, "Successfully ordered! \nThanks for choosen us (^_^;)");
                         carts.clear();
                     } else 
@@ -143,10 +145,8 @@ public class Cart {
                 } 
                 
             } else 
-                //System.out.println("Your money are insufficent!");
                 JOptionPane.showMessageDialog(null, "Your money are insufficent!");
         } else 
-            //System.out.println("No product are selected!");
             JOptionPane.showMessageDialog(null, "No product are selected!");
     }
 
@@ -176,7 +176,7 @@ public class Cart {
     public void cart_history(){
         System.out.println("Cart history are:");
         sql = "select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc";
-        DB.display_query(sql, "%-20s", 70);
+        DB.display_query(sql, "%-20s", 120);
     }
 
     public void cart_history(String uid){

@@ -17,29 +17,30 @@ public class Product {
     String sql = "";
 
     public boolean add_new_product(){
-        System.out.print("Enter product name: ");
-        prdct_name = scanner.nextLine();
-        prdct_name = prdct_name.trim();
+        try {
+            prdct_name = JOptionPane.showInputDialog("Enter product name:");
+            prdct_name = prdct_name.trim();
 
-        System.out.print("Enter category: ");
-        category = scanner.nextLine();
-        category = category.trim();
+            category = JOptionPane.showInputDialog("Enter category:");
+            category = category.trim();
 
-        System.out.print("Enter description: ");
-        desc = scanner.nextLine();
-        desc = desc.trim();
+            desc = JOptionPane.showInputDialog("Enter description:");
+            desc = desc.trim();
 
-        System.out.print("Enter price: ");
-        price = scanner.nextLine();
-        price = price.trim();
+            price = Double.parseDouble(JOptionPane.showInputDialog("Enter price:", "0.0")) + "";
+            price = price.trim();
 
-        sql = "insert into product (prdct_name,category,desc,price) values ('"+prdct_name+"','"+category+"','"+desc+"','"+price+"')";
-        if(DB.exec_query(sql)){
-            //System.out.println("Products are successfully inserted!");
-            JOptionPane.showMessageDialog(null, "Successfully product are inserted!");
-            return true;
-        } else {
-            System.out.println("Something are wrong!");
+            sql = "insert into product (prdct_name,category,desc,price) values ('"+prdct_name+"','"+category+"','"+desc+"','"+price+"')";
+            if(DB.exec_query(sql)){
+                JOptionPane.showMessageDialog(null, "Successfully product are inserted!");
+                return true;
+            } else {
+                System.out.println("Something are wrong!");
+                return false;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "You commit mistake when enter the value!");
             return false;
         }
     }
@@ -51,7 +52,7 @@ public class Product {
 
     public void display_product(){
         sql = "select * from product";
-        DB.display_query(sql, "%-20s", 30);
+        DB.display_query(sql, "%-20s", 120);
     }
 
     public void display_product_by_category(String prdct_id){
@@ -60,81 +61,89 @@ public class Product {
     }
 
     public void delete_product(){
-        System.out.print("Enter product id: ");
-        String prdct_id = scanner.nextLine();
-        prdct_id = prdct_id.trim();
+        String prdct_id = "";
+        try{
+            prdct_id = JOptionPane.showInputDialog("Enter product id:");
+            prdct_id = prdct_id.trim();
+        } catch (Exception e) {
+            prdct_id = "";
+        }
 
-        sql = "delete from product where id='"+prdct_id+"'";
-        if (DB.exec_query(sql)) {
-            //System.out.println("Product are successfully deleted!");
-            JOptionPane.showMessageDialog(null, "Successfully product are deleted!");
+        if (!prdct_id.isEmpty()) {
+            sql = "delete from product where id='"+prdct_id+"'";
+            if (DB.exec_query(sql)) {
+                JOptionPane.showMessageDialog(null, "Successfully product are deleted!");
+            } else {
+                System.out.println("Product deletion are failed!");
+            } 
         } else {
-            System.out.println("Product deletion are failed!");
-        } 
+            JOptionPane.showMessageDialog(null, "You enter wrong value!");
+        }
     }
 
     public void change_product_information(){
 
-        System.out.print("Enter product id: ");
-        id = scanner.nextLine();
-        id = id.trim();
+        try{
+            id = JOptionPane.showInputDialog("Enter product id:");
+            id = id.trim();
 
-        if (!(id.isEmpty())) {
-            System.out.print("Enter product name: ");
-            prdct_name = scanner.nextLine();
-            prdct_name = prdct_name.trim();
+            if (!(id.isEmpty())) {
+                prdct_name = JOptionPane.showInputDialog("Enter product name:");
+                prdct_name = prdct_name.trim();
 
-            if (!(prdct_name.isEmpty())) {
-                sql = "update product set prdct_name='"+prdct_name+"' where id='"+id+"'";
-                if (!DB.exec_query(sql)) {
-                    System.out.println("Updating product information are failed!");
-                } 
-            }
-                
-            System.out.print("Enter category: ");
-            category = scanner.nextLine();
-            category = category.trim();
+                if (!(prdct_name.isEmpty())) {
+                    sql = "update product set prdct_name='"+prdct_name+"' where id='"+id+"'";
+                    if (!DB.exec_query(sql)) {
+                        System.out.println("Updating product information are failed!");
+                    } 
+                }
+                    
+                category = JOptionPane.showInputDialog("Enter category:");
+                category = category.trim();
 
-            if (!(category.isEmpty())) {
-                sql = "update product set category='"+category+"' where id='"+id+"'";
-                if (!DB.exec_query(sql)) {
-                    System.out.println("Updating product information are failed!");
-                } 
-            }
+                if (!(category.isEmpty())) {
+                    sql = "update product set category='"+category+"' where id='"+id+"'";
+                    if (!DB.exec_query(sql)) {
+                        System.out.println("Updating product information are failed!");
+                    } 
+                }
 
+                price = JOptionPane.showInputDialog("Enter price:");
+                price = price.trim();
 
-            System.out.print("Enter price: ");
-            price = scanner.nextLine();
-            price = price.trim();
+                if (!(price.isEmpty())) {
+                    sql = "update product set price='"+price+"' where id='"+id+"'";
+                    if (!DB.exec_query(sql)) {
+                        System.out.println("Updating product information are failed!");
+                    } 
+                }
 
-            if (!(price.isEmpty())) {
-                sql = "update product set price='"+price+"' where id='"+id+"'";
-                if (!DB.exec_query(sql)) {
-                    System.out.println("Updating product information are failed!");
-                } 
-            }
+                desc = JOptionPane.showInputDialog("Enter product name:");
+                desc = desc.trim();
 
-
-            System.out.print("Enter description: ");
-            desc = scanner.nextLine();
-            desc = desc.trim();
-
-            if (!(desc.isEmpty())) {
-                sql = "update product set desc='"+desc+"' where id='"+id+"'";
-                if (!DB.exec_query(sql)) {
-                    System.out.println("Updating product information are failed!");
-                } 
-            }
-                
-            //System.out.println("Product information are successfully updated!");
-            JOptionPane.showMessageDialog(null, "Successfully product information are updated!");
-        }  
+                if (!(desc.isEmpty())) {
+                    sql = "update product set desc='"+desc+"' where id='"+id+"'";
+                    if (!DB.exec_query(sql)) {
+                        System.out.println("Updating product information are failed!");
+                    } 
+                }
+                    
+                JOptionPane.showMessageDialog(null, "Successfully product information are updated!");
+            } else {
+                JOptionPane.showMessageDialog(null, "You enter wrong value!");
+            } 
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Change product information canceled, \nbut some value are may be changed!");
+        }
     }
 
     public void search_product(){
-        System.out.print("Enter search query: ");
-        String search_query = scanner.nextLine();
-
+        String search_query = "";
+        try{
+            search_query = JOptionPane.showInputDialog("Enter search query");
+        } catch (Exception e){
+            search_query = "";
+        }
         
         sql = "select * from product where id like '%"+ search_query +"%' or prdct_name like '%"+ search_query +"%' or category like '%"+ search_query +"%' or price like '%"+ search_query +"%' or desc like '%"+ search_query +"%' or reg_date like '%"+ search_query +"%'";
         DB.display_query(sql, "%-20s", 109);

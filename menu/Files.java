@@ -16,7 +16,6 @@ public class Files {
                 }
             }
         } catch (Exception e){
-            //System.out.println("Something is wrong: "+e);
             Files.write_log_file(e);
         }
     } 
@@ -27,7 +26,6 @@ public class Files {
             writer.write(date + ": " + data+"\n\n");
         } catch (Exception e) {
             System.out.println("Something is wrong: "+e);
-            //Files.write_log_file(e);
         }
     }
 }

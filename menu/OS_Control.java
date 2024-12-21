@@ -23,7 +23,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } 
@@ -32,7 +31,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } else {
@@ -47,7 +45,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1, cmd2).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } 
@@ -56,7 +53,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1, cmd2).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } else {
@@ -71,7 +67,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1, cmd2, cmd3).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } 
@@ -80,7 +75,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1, cmd2, cmd3).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } else {
@@ -95,7 +89,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1, cmd2, cmd3, cmd4).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } 
@@ -104,7 +97,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1, cmd2, cmd3, cmd4).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } else {
@@ -119,7 +111,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder("cmd", "/c", cmd1, cmd2, cmd3, cmd4, cmd5).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } 
@@ -128,7 +119,6 @@ public class OS_Control {
             try {
                 new ProcessBuilder(cmd1, cmd2, cmd3, cmd4, cmd5).inheritIO().start().waitFor();
             } catch (Exception e) {
-                //System.out.println("Something is wrong: "+e);
                 Files.write_log_file(e);
             }
         } else {
