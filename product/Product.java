@@ -55,7 +55,7 @@ public class Product {
 
     public void display_product_by_category(String prdct_id){
         sql = "select * from product where category=(select category from product where id='"+prdct_id+"')";
-        DB_Client.display_query(sql, "%-20s", 109);
+        DB_Client.display_query(sql, "%-20s", 119);
     }
 
     public void delete_product(){
@@ -67,6 +67,7 @@ public class Product {
             prdct_id = "";
         }
 
+        if(prdct_id == null) prdct_id = "";
         if (!prdct_id.isEmpty()) {
             sql = "delete from product where id='"+prdct_id+"'";
             if (DB_Client.exec_query(sql)) {
@@ -85,10 +86,12 @@ public class Product {
             id = JOptionPane.showInputDialog("Enter product id:");
             id = id.trim();
 
+            if(id == null) id = "";
             if (!(id.isEmpty())) {
                 prdct_name = JOptionPane.showInputDialog("Enter product name:");
                 prdct_name = prdct_name.trim();
 
+                if(prdct_name == null) prdct_name = "";
                 if (!(prdct_name.isEmpty())) {
                     sql = "update product set prdct_name='"+prdct_name+"' where id='"+id+"'";
                     if (!DB_Client.exec_query(sql)) {
@@ -99,6 +102,7 @@ public class Product {
                 category = JOptionPane.showInputDialog("Enter category:");
                 category = category.trim();
 
+                if(category == null) category = "";
                 if (!(category.isEmpty())) {
                     sql = "update product set category='"+category+"' where id='"+id+"'";
                     if (!DB_Client.exec_query(sql)) {
@@ -109,6 +113,7 @@ public class Product {
                 price = JOptionPane.showInputDialog("Enter price:");
                 price = price.trim();
 
+                if(price == null) price = "";
                 if (!(price.isEmpty())) {
                     sql = "update product set price='"+price+"' where id='"+id+"'";
                     if (!DB_Client.exec_query(sql)) {
@@ -119,6 +124,7 @@ public class Product {
                 desc = JOptionPane.showInputDialog("Enter product name:");
                 desc = desc.trim();
 
+                if(desc == null) desc = "";
                 if (!(desc.isEmpty())) {
                     sql = "update product set desc='"+desc+"' where id='"+id+"'";
                     if (!DB_Client.exec_query(sql)) {

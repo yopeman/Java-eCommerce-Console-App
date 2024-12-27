@@ -282,3 +282,187 @@
 
 [Fri Dec 27 09:00:30 UTC 2024 | 2024-12-27T09:00:30.289298473] :	 select count(*) from user where role='admin'
 
+[Fri Dec 27 18:16:52 UTC 2024 | 2024-12-27T18:16:52.805498537] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:16:54 UTC 2024 | 2024-12-27T18:16:54.142746328] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:16:54 UTC 2024 | 2024-12-27T18:16:54.144124113] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:16:54 UTC 2024 | 2024-12-27T18:16:54.156600766] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 18:17:59 UTC 2024 | 2024-12-27T18:17:59.852921719] :	 select count(*) from user where email='melke@abc' and pswd='12345'
+
+[Fri Dec 27 18:17:59 UTC 2024 | 2024-12-27T18:17:59.988999374] :	 select * from user where email='melke@abc' limit 1
+
+[Fri Dec 27 18:18:06 UTC 2024 | 2024-12-27T18:18:06.212260174] :	 select * from product
+
+[Fri Dec 27 18:18:06 UTC 2024 | 2024-12-27T18:18:06.325744344] :	 select * from product
+
+[Fri Dec 27 18:18:18 UTC 2024 | 2024-12-27T18:18:18.744873809] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 18:18:18 UTC 2024 | 2024-12-27T18:18:18.761961944] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 18:18:33 UTC 2024 | 2024-12-27T18:18:33.081437841] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 18:18:33 UTC 2024 | 2024-12-27T18:18:33.183056453] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 18:18:35 UTC 2024 | 2024-12-27T18:18:35.700735345] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:18:38 UTC 2024 | 2024-12-27T18:18:38.649549554] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:18:38 UTC 2024 | 2024-12-27T18:18:38.718095781] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:18:42 UTC 2024 | 2024-12-27T18:18:42.287993128] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:18:42 UTC 2024 | 2024-12-27T18:18:42.395056044] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:19:22 UTC 2024 | 2024-12-27T18:19:22.569151453] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:19:26 UTC 2024 | 2024-12-27T18:19:26.105456144] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:19:26 UTC 2024 | 2024-12-27T18:19:26.155069191] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:19:29 UTC 2024 | 2024-12-27T18:19:29.523919583] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:19:29 UTC 2024 | 2024-12-27T18:19:29.649972976] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:22:01 UTC 2024 | 2024-12-27T18:22:01.230388042] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:51:54 UTC 2024 | 2024-12-27T18:51:54.930280230] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:51:55 UTC 2024 | 2024-12-27T18:51:55.630737401] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:51:55 UTC 2024 | 2024-12-27T18:51:55.633056448] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:51:55 UTC 2024 | 2024-12-27T18:51:55.635086181] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 18:52:02 UTC 2024 | 2024-12-27T18:52:02.033357281] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:52:25 UTC 2024 | 2024-12-27T18:52:25.387936333] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 18:52:25 UTC 2024 | 2024-12-27T18:52:25.451190246] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 18:52:27 UTC 2024 | 2024-12-27T18:52:27.615170761] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:52:42 UTC 2024 | 2024-12-27T18:52:42.144776762] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:52:42 UTC 2024 | 2024-12-27T18:52:42.216151195] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:52:46 UTC 2024 | 2024-12-27T18:52:46.923665849] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:54:22 UTC 2024 | 2024-12-27T18:54:22.514002805] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 18:54:22 UTC 2024 | 2024-12-27T18:54:22.702704170] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 18:54:27 UTC 2024 | 2024-12-27T18:54:27.726435063] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:54:33 UTC 2024 | 2024-12-27T18:54:33.028116309] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:54:33 UTC 2024 | 2024-12-27T18:54:33.152446218] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:54:36 UTC 2024 | 2024-12-27T18:54:36.790531359] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:54:42 UTC 2024 | 2024-12-27T18:54:42.057202573] :	 select * from product where id like '%null%' or prdct_name like '%null%' or category like '%null%' or price like '%null%' or desc like '%null%' or reg_date like '%null%'
+
+[Fri Dec 27 18:54:42 UTC 2024 | 2024-12-27T18:54:42.142667792] :	 select * from product where id like '%null%' or prdct_name like '%null%' or category like '%null%' or price like '%null%' or desc like '%null%' or reg_date like '%null%'
+
+[Fri Dec 27 18:54:49 UTC 2024 | 2024-12-27T18:54:49.314652019] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:54:56 UTC 2024 | 2024-12-27T18:54:56.247499689] :	 select * from product where id like '%b%' or prdct_name like '%b%' or category like '%b%' or price like '%b%' or desc like '%b%' or reg_date like '%b%'
+
+[Fri Dec 27 18:54:56 UTC 2024 | 2024-12-27T18:54:56.296920439] :	 select * from product where id like '%b%' or prdct_name like '%b%' or category like '%b%' or price like '%b%' or desc like '%b%' or reg_date like '%b%'
+
+[Fri Dec 27 18:55:00 UTC 2024 | 2024-12-27T18:55:00.281176014] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:55:22 UTC 2024 | 2024-12-27T18:55:22.157740200] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 18:55:22 UTC 2024 | 2024-12-27T18:55:22.255144100] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 18:55:23 UTC 2024 | 2024-12-27T18:55:23.907600998] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:55:25 UTC 2024 | 2024-12-27T18:55:25.425597098] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:55:25 UTC 2024 | 2024-12-27T18:55:25.457613899] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:55:28 UTC 2024 | 2024-12-27T18:55:28.162318286] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:55:28 UTC 2024 | 2024-12-27T18:55:28.210962980] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:55:56 UTC 2024 | 2024-12-27T18:55:56.456961948] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:56:00 UTC 2024 | 2024-12-27T18:56:00.686534018] :	 select * from product where id like '%w%' or prdct_name like '%w%' or category like '%w%' or price like '%w%' or desc like '%w%' or reg_date like '%w%'
+
+[Fri Dec 27 18:56:00 UTC 2024 | 2024-12-27T18:56:00.760045115] :	 select * from product where id like '%w%' or prdct_name like '%w%' or category like '%w%' or price like '%w%' or desc like '%w%' or reg_date like '%w%'
+
+[Fri Dec 27 18:56:08 UTC 2024 | 2024-12-27T18:56:08.357875600] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:56:10 UTC 2024 | 2024-12-27T18:56:10.131045684] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:56:10 UTC 2024 | 2024-12-27T18:56:10.184162355] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:56:12 UTC 2024 | 2024-12-27T18:56:12.734991313] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:56:13 UTC 2024 | 2024-12-27T18:56:13.518659911] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:56:13 UTC 2024 | 2024-12-27T18:56:13.588434505] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:56:16 UTC 2024 | 2024-12-27T18:56:16.305884919] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:56:16 UTC 2024 | 2024-12-27T18:56:16.388488893] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:57:03 UTC 2024 | 2024-12-27T18:57:03.646814893] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:57:04 UTC 2024 | 2024-12-27T18:57:04.653095458] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:57:04 UTC 2024 | 2024-12-27T18:57:04.692267240] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:58:04 UTC 2024 | 2024-12-27T18:58:04.249738050] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:58:05 UTC 2024 | 2024-12-27T18:58:05.241523452] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:58:05 UTC 2024 | 2024-12-27T18:58:05.291531452] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:58:07 UTC 2024 | 2024-12-27T18:58:07.079943694] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:58:07 UTC 2024 | 2024-12-27T18:58:07.145356632] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:59:03 UTC 2024 | 2024-12-27T18:59:03.563346455] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:59:04 UTC 2024 | 2024-12-27T18:59:04.302963787] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:59:04 UTC 2024 | 2024-12-27T18:59:04.305626751] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 18:59:04 UTC 2024 | 2024-12-27T18:59:04.307390669] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 18:59:24 UTC 2024 | 2024-12-27T18:59:24.214452769] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 18:59:24 UTC 2024 | 2024-12-27T18:59:24.230736455] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 18:59:26 UTC 2024 | 2024-12-27T18:59:26.220961792] :	 select balance from user where id='2'
+
+[Fri Dec 27 18:59:36 UTC 2024 | 2024-12-27T18:59:36.988901842] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:59:37 UTC 2024 | 2024-12-27T18:59:37.043802439] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 18:59:41 UTC 2024 | 2024-12-27T18:59:41.681314674] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 18:59:41 UTC 2024 | 2024-12-27T18:59:41.728038524] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 19:00:05 UTC 2024 | 2024-12-27T19:00:05.521443762] :	 select balance from user where id='2'
+
+[Fri Dec 27 19:11:58 UTC 2024 | 2024-12-27T19:11:58.546878781] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 19:11:59 UTC 2024 | 2024-12-27T19:11:59.391902790] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 19:11:59 UTC 2024 | 2024-12-27T19:11:59.394461666] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 19:11:59 UTC 2024 | 2024-12-27T19:11:59.399194795] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 20:02:22 UTC 2024 | 2024-12-27T20:02:22.496741702] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 20:02:23 UTC 2024 | 2024-12-27T20:02:23.212561357] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 20:02:23 UTC 2024 | 2024-12-27T20:02:23.216207194] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 20:02:23 UTC 2024 | 2024-12-27T20:02:23.220078815] :	 select count(*) from user where role='admin'
+

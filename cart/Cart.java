@@ -65,6 +65,7 @@ public class Cart {
             try{
                 prdct_id = JOptionPane.showInputDialog("Enter product id for add to cart:");
 
+                if(prdct_id == null) prdct_id = "";
                 if(prdct_id.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Add to cart are finished!");
                     break;
@@ -72,6 +73,7 @@ public class Cart {
                     
                 quantity = JOptionPane.showInputDialog("Enter product quantity for add to cart:", 1);
 
+                if(quantity == null) quantity = "";
                 if (quantity.isEmpty())
                     quantity = "1";
 
@@ -126,6 +128,7 @@ public class Cart {
             if (total_price <= Balance.getBalance()) {
                 boolean is_inserted = JOptionPane.showConfirmDialog(null,  "Do you want to buy the product?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0;
                 
+                if(user_id == null) user_id = "";
                 if (is_inserted && !user_id.isEmpty()) {
 
                     for (String prdct_id : carts.keySet()) {
@@ -135,6 +138,7 @@ public class Cart {
                     }
 
                     if (is_inserted) {
+                        Balance.withdraw(total_price);
                         JOptionPane.showMessageDialog(null, "Successfully ordered! \nThanks for choosen us (^_^;)");
                         carts.clear();
                     } else 

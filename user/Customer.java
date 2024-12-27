@@ -47,7 +47,9 @@ public class Customer extends User {
                     prdct_id = "";
                 }
 
+                if(prdct_id == null) prdct_id = "";
                 if(!prdct_id.isEmpty()){
+                    System.out.println();
                     product.display_product_by_category(prdct_id);
                     cart.add_to_cart();
                 }

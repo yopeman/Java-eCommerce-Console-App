@@ -19,3 +19,13 @@
 
 [Fri Dec 27 08:53:40 UTC 2024 | 2024-12-27T08:53:40.063419666] :	 java.lang.NullPointerException: Cannot invoke "server.DB_Interface.get_result_set(String)" because the return value of "database.DB_Client.get_stub()" is null
 
+[Fri Dec 27 18:52:56 UTC 2024 | 2024-12-27T18:52:56.977700990] :	 java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.email" is null
+
+[Fri Dec 27 18:53:05 UTC 2024 | 2024-12-27T18:53:05.041432672] :	 java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.pswd" is null
+
+[Fri Dec 27 18:53:10 UTC 2024 | 2024-12-27T18:53:10.063254318] :	 java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.usr_name" is null
+
+[Fri Dec 27 18:53:16 UTC 2024 | 2024-12-27T18:53:16.842895159] :	 java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.email" is null
+
+[Fri Dec 27 18:53:30 UTC 2024 | 2024-12-27T18:53:30.326147888] :	 java.lang.NullPointerException: Cannot invoke "String.trim()" because "this.pswd" is null
+

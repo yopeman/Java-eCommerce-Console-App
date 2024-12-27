@@ -121,6 +121,7 @@ public class User {
     }
 
     public String usr_info(String key){
+        if(id == null) id = "";
         if(!(id.isEmpty())){
             switch (key) {
                 case "id":
@@ -153,6 +154,7 @@ public class User {
     }
 
     public boolean is_logined(){
+        if(id == null) id = "";
         if (!(id.isEmpty())) 
             return true;
         else 
@@ -177,18 +179,24 @@ public class User {
             try{
                 temp = JOptionPane.showInputDialog("Enter username:", usr_name);
                 temp = temp.trim();
+
+                if(temp == null) temp = "";
                 if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
                     usr_name = temp;
                 }
 
                 temp = JOptionPane.showInputDialog("Enter password:");
                 temp = temp.trim();
+
+                if(temp == null) temp = "";
                 if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
                     pswd = temp;
                 }
 
                 temp = JOptionPane.showInputDialog("Enter address:", address);
                 temp = temp.trim();
+
+                if(temp == null) temp = "";
                 if (!(temp.equalsIgnoreCase("\n") || temp.isEmpty())) {
                     address = temp;
                 }
@@ -226,6 +234,8 @@ public class User {
             temp_role = "";
         }
 
+        if(temp_id == null) temp_id = "";
+        if(temp_role == null) temp_role = "";
         if (!(temp_id.isEmpty() && temp_role.isEmpty())) {
             sql = "update user set role='"+temp_role+"' where id='"+temp_id+"'";
             if (DB_Client.exec_query(sql)) {
@@ -250,6 +260,7 @@ public class User {
             temp_id = "";
         }
         
+        if(temp_id == null) temp_id = "";
         if (!temp_id.isEmpty()) {
             sql = "delete from user where id='"+temp_id+"'";
             if (DB_Client.exec_query(sql)) {
