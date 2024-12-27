@@ -1,3 +1,10 @@
 [Fri Dec 27 04:28:59 UTC 2024 | 2024-12-27T04:28:59.632802359] :	 java.rmi.server.ExportException: Port already in use: 64318; nested exception is: 
 	java.net.BindException: Address already in use
 
+[Fri Dec 27 07:15:08 UTC 2024 | 2024-12-27T07:15:08.089561147] :	 java.io.NotSerializableException: org.sqlite.jdbc4.JDBC4ResultSet
+
+[Fri Dec 27 07:15:13 UTC 2024 | 2024-12-27T07:15:13.407164224] :	 java.io.NotSerializableException: org.sqlite.jdbc4.JDBC4ResultSet
+
+[Fri Dec 27 08:33:26 UTC 2024 | 2024-12-27T08:33:26.391416079] :	 java.rmi.server.ExportException: Port already in use: 64318; nested exception is: 
+	java.net.BindException: Address already in use
+

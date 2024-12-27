@@ -4,3 +4,18 @@
 [Fri Dec 27 04:27:44 UTC 2024 | 2024-12-27T04:27:44.125705366] :	 java.rmi.UnmarshalException: error unmarshalling return; nested exception is: 
 	java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: org.sqlite.jdbc4.JDBC4ResultSet
 
+[Fri Dec 27 07:15:08 UTC 2024 | 2024-12-27T07:15:08.161872016] :	 java.lang.NullPointerException: Cannot invoke "java.io.InputStream.read(byte[], int, int)" because "this.in" is null
+
+[Fri Dec 27 07:15:13 UTC 2024 | 2024-12-27T07:15:13.410358547] :	 java.lang.NullPointerException: Cannot invoke "java.io.InputStream.read(byte[], int, int)" because "this.in" is null
+
+[Fri Dec 27 07:35:20 UTC 2024 | 2024-12-27T07:35:20.069872944] :	 java.rmi.UnmarshalException: error unmarshalling return; nested exception is: 
+	java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: org.sqlite.jdbc4.JDBC4ResultSet
+
+[Fri Dec 27 07:36:41 UTC 2024 | 2024-12-27T07:36:41.673020074] :	 java.rmi.UnmarshalException: error unmarshalling return; nested exception is: 
+	java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: org.sqlite.jdbc4.JDBC4ResultSet
+
+[Fri Dec 27 08:53:34 UTC 2024 | 2024-12-27T08:53:34.254204497] :	 java.rmi.ConnectException: Connection refused to host: 127.0.0.1; nested exception is: 
+	java.net.ConnectException: Connection refused
+
+[Fri Dec 27 08:53:40 UTC 2024 | 2024-12-27T08:53:40.063419666] :	 java.lang.NullPointerException: Cannot invoke "server.DB_Interface.get_result_set(String)" because the return value of "database.DB_Client.get_stub()" is null
+

@@ -1,7 +1,6 @@
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import server.DB_Interface;
-import javax.swing.JOptionPane;
 
 public class test {
     public static void main(String[] args){

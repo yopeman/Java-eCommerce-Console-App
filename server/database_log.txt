@@ -40,3 +40,245 @@
 
 [Fri Dec 27 04:33:10 UTC 2024 | 2024-12-27T04:33:10.272678442] :	 select balance from user where id='2'
 
+[Fri Dec 27 07:14:24 UTC 2024 | 2024-12-27T07:14:24.102136156] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 07:14:24 UTC 2024 | 2024-12-27T07:14:24.842529197] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 07:14:24 UTC 2024 | 2024-12-27T07:14:24.844334353] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 07:14:24 UTC 2024 | 2024-12-27T07:14:24.846743909] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 07:15:02 UTC 2024 | 2024-12-27T07:15:02.461033948] :	 select count(*) from user where email='admin@bitstore.com' and pswd='admin'
+
+[Fri Dec 27 07:15:02 UTC 2024 | 2024-12-27T07:15:02.498919951] :	 select * from user where email='admin@bitstore.com' limit 1
+
+[Fri Dec 27 07:15:07 UTC 2024 | 2024-12-27T07:15:07.962555474] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 07:15:13 UTC 2024 | 2024-12-27T07:15:13.397969771] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 07:34:57 UTC 2024 | 2024-12-27T07:34:57.752665415] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 07:34:58 UTC 2024 | 2024-12-27T07:34:58.078518738] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 07:34:58 UTC 2024 | 2024-12-27T07:34:58.080366313] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 07:34:58 UTC 2024 | 2024-12-27T07:34:58.081563207] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 07:35:11 UTC 2024 | 2024-12-27T07:35:11.464637113] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 07:35:11 UTC 2024 | 2024-12-27T07:35:11.490916424] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 07:35:14 UTC 2024 | 2024-12-27T07:35:14.001756995] :	 select balance from user where id='2'
+
+[Fri Dec 27 07:35:19 UTC 2024 | 2024-12-27T07:35:19.939107620] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 07:36:37 UTC 2024 | 2024-12-27T07:36:37.951362550] :	 select count(*) from user where email='admin@bitstore.com' and pswd='admin'
+
+[Fri Dec 27 07:36:37 UTC 2024 | 2024-12-27T07:36:37.986564469] :	 select * from user where email='admin@bitstore.com' limit 1
+
+[Fri Dec 27 07:36:41 UTC 2024 | 2024-12-27T07:36:41.604355632] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:27:07 UTC 2024 | 2024-12-27T08:27:07.919376552] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:27:08 UTC 2024 | 2024-12-27T08:27:08.872913749] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:27:08 UTC 2024 | 2024-12-27T08:27:08.874520436] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:27:08 UTC 2024 | 2024-12-27T08:27:08.882146902] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 08:27:40 UTC 2024 | 2024-12-27T08:27:40.476740497] :	 select count(*) from user where email='admin@bitstore.com' and pswd='admin'
+
+[Fri Dec 27 08:27:40 UTC 2024 | 2024-12-27T08:27:40.594676260] :	 select * from user where email='admin@bitstore.com' limit 1
+
+[Fri Dec 27 08:27:44 UTC 2024 | 2024-12-27T08:27:44.720744761] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:27:44 UTC 2024 | 2024-12-27T08:27:44.776650032] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:29:47 UTC 2024 | 2024-12-27T08:29:47.331267095] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:29:47 UTC 2024 | 2024-12-27T08:29:47.697834699] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:29:47 UTC 2024 | 2024-12-27T08:29:47.699344619] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:29:47 UTC 2024 | 2024-12-27T08:29:47.700591342] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 08:31:42 UTC 2024 | 2024-12-27T08:31:42.479704211] :	 select count(*) from user where email='admin@bitstore.com' and pswd='admin'
+
+[Fri Dec 27 08:31:42 UTC 2024 | 2024-12-27T08:31:42.489189257] :	 select * from user where email='admin@bitstore.com' limit 1
+
+[Fri Dec 27 08:31:45 UTC 2024 | 2024-12-27T08:31:45.616551036] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:31:45 UTC 2024 | 2024-12-27T08:31:45.640842771] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:33:36 UTC 2024 | 2024-12-27T08:33:36.971268199] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:33:37 UTC 2024 | 2024-12-27T08:33:37.498723693] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:33:37 UTC 2024 | 2024-12-27T08:33:37.500068931] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 08:33:37 UTC 2024 | 2024-12-27T08:33:37.505056844] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 08:35:54 UTC 2024 | 2024-12-27T08:35:54.462902874] :	 insert into user (usr_name, email, pswd, address, balance) values ('melkamu','melke@abc','12345','12345', 100.0)
+
+[Fri Dec 27 08:35:56 UTC 2024 | 2024-12-27T08:35:56.951884043] :	 select * from user where email='melke@abc' limit 1
+
+[Fri Dec 27 08:36:00 UTC 2024 | 2024-12-27T08:36:00.965548564] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:36:27 UTC 2024 | 2024-12-27T08:36:27.477668999] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 08:36:27 UTC 2024 | 2024-12-27T08:36:27.504498751] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 08:37:05 UTC 2024 | 2024-12-27T08:37:05.004118410] :	 select count(*) from user where email='admin@bitstore.com' and pswd='admin'
+
+[Fri Dec 27 08:37:05 UTC 2024 | 2024-12-27T08:37:05.041379284] :	 select * from user where email='admin@bitstore.com' limit 1
+
+[Fri Dec 27 08:37:18 UTC 2024 | 2024-12-27T08:37:18.810476439] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:37:18 UTC 2024 | 2024-12-27T08:37:18.829849409] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:37:47 UTC 2024 | 2024-12-27T08:37:47.511450118] :	 select * from product
+
+[Fri Dec 27 08:37:47 UTC 2024 | 2024-12-27T08:37:47.537856719] :	 select * from product
+
+[Fri Dec 27 08:38:25 UTC 2024 | 2024-12-27T08:38:25.001550099] :	 insert into product (prdct_name,category,desc,price) values ('Book','book','...','370.0')
+
+[Fri Dec 27 08:38:30 UTC 2024 | 2024-12-27T08:38:30.984083659] :	 select * from product
+
+[Fri Dec 27 08:38:30 UTC 2024 | 2024-12-27T08:38:30.994604509] :	 select * from product
+
+[Fri Dec 27 08:38:56 UTC 2024 | 2024-12-27T08:38:56.374607112] :	 insert into product (prdct_name,category,desc,price) values ('','','','0.0')
+
+[Fri Dec 27 08:39:03 UTC 2024 | 2024-12-27T08:39:03.260297945] :	 select * from product
+
+[Fri Dec 27 08:39:03 UTC 2024 | 2024-12-27T08:39:03.271524385] :	 select * from product
+
+[Fri Dec 27 08:39:11 UTC 2024 | 2024-12-27T08:39:11.996386200] :	 delete from product where id='2'
+
+[Fri Dec 27 08:39:46 UTC 2024 | 2024-12-27T08:39:46.164069945] :	 insert into product (prdct_name,category,desc,price) values ('Exersice book','book','...','200.0')
+
+[Fri Dec 27 08:40:07 UTC 2024 | 2024-12-27T08:40:07.235501525] :	 insert into product (prdct_name,category,desc,price) values ('Pen','pen','...','30.0')
+
+[Fri Dec 27 08:40:11 UTC 2024 | 2024-12-27T08:40:11.111460939] :	 select * from product
+
+[Fri Dec 27 08:40:11 UTC 2024 | 2024-12-27T08:40:11.129260805] :	 select * from product
+
+[Fri Dec 27 08:40:51 UTC 2024 | 2024-12-27T08:40:51.846683804] :	 select count(*) from user where email='melke@abc' and pswd='12345'
+
+[Fri Dec 27 08:40:51 UTC 2024 | 2024-12-27T08:40:51.886665601] :	 select * from user where email='melke@abc' limit 1
+
+[Fri Dec 27 08:40:55 UTC 2024 | 2024-12-27T08:40:55.791813531] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:41:00 UTC 2024 | 2024-12-27T08:41:00.151506991] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 08:41:00 UTC 2024 | 2024-12-27T08:41:00.173983510] :	 select min(id) as id, category from product group by category
+
+[Fri Dec 27 08:41:21 UTC 2024 | 2024-12-27T08:41:21.153219376] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 08:41:21 UTC 2024 | 2024-12-27T08:41:21.221753016] :	 select * from product where category=(select category from product where id='1')
+
+[Fri Dec 27 08:42:05 UTC 2024 | 2024-12-27T08:42:05.751586867] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:42:19 UTC 2024 | 2024-12-27T08:42:19.007072271] :	 select id, prdct_name, category, price from product where id='1'
+
+[Fri Dec 27 08:42:19 UTC 2024 | 2024-12-27T08:42:19.048454066] :	 select price from product where id='1'
+
+[Fri Dec 27 08:42:39 UTC 2024 | 2024-12-27T08:42:39.339494200] :	 select price from product where id='1'
+
+[Fri Dec 27 08:42:39 UTC 2024 | 2024-12-27T08:42:39.348778882] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:42:48 UTC 2024 | 2024-12-27T08:42:48.080066873] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:43:04 UTC 2024 | 2024-12-27T08:43:04.192050349] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:43:06 UTC 2024 | 2024-12-27T08:43:06.363227655] :	 select id, prdct_name, category, price from product where id='1'
+
+[Fri Dec 27 08:43:06 UTC 2024 | 2024-12-27T08:43:06.386392285] :	 select price from product where id='1'
+
+[Fri Dec 27 08:43:13 UTC 2024 | 2024-12-27T08:43:13.213839158] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:43:40 UTC 2024 | 2024-12-27T08:43:40.013192220] :	 update user set balance='4100.0'
+
+[Fri Dec 27 08:43:41 UTC 2024 | 2024-12-27T08:43:41.487687056] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:43:46 UTC 2024 | 2024-12-27T08:43:46.093114339] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:43:47 UTC 2024 | 2024-12-27T08:43:47.679209664] :	 select id, prdct_name, category, price from product where id='1'
+
+[Fri Dec 27 08:43:47 UTC 2024 | 2024-12-27T08:43:47.695934107] :	 select price from product where id='1'
+
+[Fri Dec 27 08:43:52 UTC 2024 | 2024-12-27T08:43:52.527874568] :	 select price from product where id='1'
+
+[Fri Dec 27 08:43:52 UTC 2024 | 2024-12-27T08:43:52.550207946] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:43:56 UTC 2024 | 2024-12-27T08:43:56.306632043] :	 insert into cart (usr_id,prdct_id,quantity) values ('3','1','10')
+
+[Fri Dec 27 08:44:00 UTC 2024 | 2024-12-27T08:44:00.469724251] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:44:15 UTC 2024 | 2024-12-27T08:44:15.953161011] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:44:22 UTC 2024 | 2024-12-27T08:44:22.799156571] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:44:26 UTC 2024 | 2024-12-27T08:44:26.843527888] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:44:52 UTC 2024 | 2024-12-27T08:44:52.591104103] :	 select p.prdct_name, p.category, p.price, c.quantity, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '3' order by c.id desc
+
+[Fri Dec 27 08:44:52 UTC 2024 | 2024-12-27T08:44:52.616900154] :	 select p.prdct_name, p.category, p.price, c.quantity, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '3' order by c.id desc
+
+[Fri Dec 27 08:44:59 UTC 2024 | 2024-12-27T08:44:59.143459840] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:45:14 UTC 2024 | 2024-12-27T08:45:14.294656602] :	 select * from product where id like '%pen%' or prdct_name like '%pen%' or category like '%pen%' or price like '%pen%' or desc like '%pen%' or reg_date like '%pen%'
+
+[Fri Dec 27 08:45:14 UTC 2024 | 2024-12-27T08:45:14.339946147] :	 select * from product where id like '%pen%' or prdct_name like '%pen%' or category like '%pen%' or price like '%pen%' or desc like '%pen%' or reg_date like '%pen%'
+
+[Fri Dec 27 08:45:28 UTC 2024 | 2024-12-27T08:45:28.106906499] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:45:41 UTC 2024 | 2024-12-27T08:45:41.845662009] :	 select * from product where id like '%oo%' or prdct_name like '%oo%' or category like '%oo%' or price like '%oo%' or desc like '%oo%' or reg_date like '%oo%'
+
+[Fri Dec 27 08:45:41 UTC 2024 | 2024-12-27T08:45:41.890608378] :	 select * from product where id like '%oo%' or prdct_name like '%oo%' or category like '%oo%' or price like '%oo%' or desc like '%oo%' or reg_date like '%oo%'
+
+[Fri Dec 27 08:46:01 UTC 2024 | 2024-12-27T08:46:01.837457463] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:47:17 UTC 2024 | 2024-12-27T08:47:17.038301481] :	 update user set usr_name='Melkamu Wale', pswd='12345', address='Bahir Dar' where id='3'
+
+[Fri Dec 27 08:47:20 UTC 2024 | 2024-12-27T08:47:20.273128278] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:47:36 UTC 2024 | 2024-12-27T08:47:36.938505880] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:48:06 UTC 2024 | 2024-12-27T08:48:06.674936995] :	 select count(*) from user where email='melke@abc' and pswd='12345'
+
+[Fri Dec 27 08:48:06 UTC 2024 | 2024-12-27T08:48:06.706043014] :	 select * from user where email='melke@abc' limit 1
+
+[Fri Dec 27 08:48:09 UTC 2024 | 2024-12-27T08:48:09.981671471] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:48:22 UTC 2024 | 2024-12-27T08:48:22.454749436] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:48:22 UTC 2024 | 2024-12-27T08:48:22.476065057] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:48:30 UTC 2024 | 2024-12-27T08:48:30.144423776] :	 select balance from user where id='3'
+
+[Fri Dec 27 08:48:53 UTC 2024 | 2024-12-27T08:48:53.067734964] :	 update user set role='admin' where id='3'
+
+[Fri Dec 27 08:48:56 UTC 2024 | 2024-12-27T08:48:56.736820290] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:48:56 UTC 2024 | 2024-12-27T08:48:56.758685489] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:49:21 UTC 2024 | 2024-12-27T08:49:21.219019] :	 select count(*) from user where email='melke@abc' and pswd='12345'
+
+[Fri Dec 27 08:49:21 UTC 2024 | 2024-12-27T08:49:21.251576161] :	 select * from user where email='melke@abc' limit 1
+
+[Fri Dec 27 08:50:47 UTC 2024 | 2024-12-27T08:50:47.898876288] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:50:47 UTC 2024 | 2024-12-27T08:50:47.906506455] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 08:51:49 UTC 2024 | 2024-12-27T08:51:49.095148954] :	 select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc
+
+[Fri Dec 27 08:51:49 UTC 2024 | 2024-12-27T08:51:49.104601958] :	 select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc
+
+[Fri Dec 27 09:00:29 UTC 2024 | 2024-12-27T09:00:29.899940826] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 09:00:30 UTC 2024 | 2024-12-27T09:00:30.286503195] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 09:00:30 UTC 2024 | 2024-12-27T09:00:30.287948608] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 09:00:30 UTC 2024 | 2024-12-27T09:00:30.289298473] :	 select count(*) from user where role='admin'
+

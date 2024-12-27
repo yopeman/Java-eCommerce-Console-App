@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Date;
 import java.time.LocalDateTime;
 
@@ -115,13 +116,52 @@ public class DB_Implement implements DB_Interface, Serializable {
     }
 
     @Override
-    public ResultSet get_result_set(String sql) throws RemoteException {
+    public ArrayList<String> get_meta_data(String sql) throws RemoteException {
         Files.write_log_file("database_log", sql);
 
         try(Connection conn = DriverManager.getConnection(db_url)){
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return rs;
+
+            ResultSetMetaData meta_data = rs.getMetaData();
+            int col_num = meta_data.getColumnCount();
+            ArrayList<String> meta_data_list = new ArrayList<String>();
+            String key;
+
+            for(int i = 1; i <= col_num; i++){
+                key = meta_data.getColumnName(i);
+                meta_data_list.add(key);
+            }
+
+            return meta_data_list;
+        } catch(Exception e){
+            Files.write_log_file("server_log", e);
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<String> get_result_set(String sql) throws RemoteException {
+        Files.write_log_file("database_log", sql);
+
+        try(Connection conn = DriverManager.getConnection(db_url)){
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            ResultSetMetaData meta_data = rs.getMetaData();
+            int col_num = meta_data.getColumnCount();
+            String key, value;
+            ArrayList<String> result_set = new ArrayList<String>();
+
+            while (rs.next()) {
+                for(int i = 1; i <= col_num; i++){
+                    key = meta_data.getColumnName(i);
+                    value = rs.getString(key);
+                    result_set.add(value);
+                }
+            }
+
+            return result_set;
         } catch(Exception e){
             Files.write_log_file("server_log", e);
             return null;
