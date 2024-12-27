@@ -1,4 +1,0 @@
-This is log page!
-
-Wed Dec 18 17:31:14 UTC 2024: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: user.email)
-

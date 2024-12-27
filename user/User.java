@@ -3,11 +3,10 @@ package user;
 import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-
-import database.DB;
+import database.DB_Client;
 import menu.Files;
 
-public class User extends User_Operation {
+public class User {
     Scanner scanner = new Scanner(System.in);
     String sql;
 
@@ -41,14 +40,14 @@ public class User extends User_Operation {
                 usr_name + "','" + email + "','" + pswd + "','" + address +
               "', 100.0)";
 
-        if(DB.exec_query(sql)){
+        if(DB_Client.exec_query(sql)){
             JOptionPane.showMessageDialog(null, "Successfully registered!");
 
         sql =  "select * from user where email='" + email + "' limit 1";
         HashMap<String,String> row = new HashMap<String,String>();
 
         try{
-            row = DB.select_query(sql);
+            row = DB_Client.select_query(sql);
             if(row != null){
                 id = row.get("id");
                 usr_name = row.get("usr_name");
@@ -88,12 +87,12 @@ public class User extends User_Operation {
 
         sql = "select count(*) from user where email='" + email + "' and pswd='" + pswd + "'";
 
-        if(DB.count_query(sql) == 1){
+        if(DB_Client.count_query(sql) == 1){
             sql =  "select * from user where email='" + email + "' limit 1";
             HashMap<String,String> row = new HashMap<String,String>();
 
             try{
-                row = DB.select_query(sql);
+                row = DB_Client.select_query(sql);
                 if(row != null){
                     id = row.get("id");
                     usr_name = row.get("usr_name");
@@ -195,7 +194,7 @@ public class User extends User_Operation {
                 }
 
                 sql = "update user set usr_name='"+usr_name+"', pswd='"+pswd+"', address='"+address+"' where id='"+id+"'";
-                if (DB.exec_query(sql)) {
+                if (DB_Client.exec_query(sql)) {
                     JOptionPane.showMessageDialog(null, "Successfully information are changed!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Change information are failed!");
@@ -209,7 +208,7 @@ public class User extends User_Operation {
 
     public void display_all_user(){
         sql = "select id,usr_name,email,role,balance,address,reg_date from user";
-        DB.display_query(sql, "%-20s", 140);
+        DB_Client.display_query(sql, "%-20s", 140);
     }
 
     public void change_user_role(){
@@ -229,7 +228,7 @@ public class User extends User_Operation {
 
         if (!(temp_id.isEmpty() && temp_role.isEmpty())) {
             sql = "update user set role='"+temp_role+"' where id='"+temp_id+"'";
-            if (DB.exec_query(sql)) {
+            if (DB_Client.exec_query(sql)) {
                 JOptionPane.showMessageDialog(null, "Successfully information are change!");
             } else {
                 JOptionPane.showMessageDialog(null, "Change information are failed!");
@@ -253,7 +252,7 @@ public class User extends User_Operation {
         
         if (!temp_id.isEmpty()) {
             sql = "delete from user where id='"+temp_id+"'";
-            if (DB.exec_query(sql)) {
+            if (DB_Client.exec_query(sql)) {
                 JOptionPane.showMessageDialog(null, "Successfully user are deleted!");
             } else {
                 JOptionPane.showMessageDialog(null, "User deletion are failed!");

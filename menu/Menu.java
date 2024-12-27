@@ -62,7 +62,7 @@ public class Menu {
                 break;
 
             case "5":
-                files.file_read("menu/log.txt");
+                files.file_read("menu/client_log.txt");
                 break;
 
             case "0":

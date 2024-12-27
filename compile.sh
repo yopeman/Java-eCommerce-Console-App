@@ -3,7 +3,10 @@ clear
 echo "===== Compiling all files ====="
 echo ""
 
-export CLASSPATH=.:database/sqlite-jdbc-3.47.0.0.jar
+./del_class.sh
+echo "All Class Files Are Deleted!"
+
+export CLASSPATH=.:server/sqlite-jdbc-3.47.0.0.jar
 echo "CLASSPATH Of JDBC Are Inserted!"
 
 javac -classpath $CLASSPATH cart/*.java
@@ -18,14 +21,11 @@ echo "Menu Package Are Compiled!"
 javac -classpath $CLASSPATH product/*.java
 echo "Product Package Are Compiled!"
 
+javac -classpath $CLASSPATH server/*.java
+echo "Server Package Are Compiled!"
+
 javac -classpath $CLASSPATH user/*.java
 echo "User Package Are Compiled!"
 
 javac -classpath $CLASSPATH *.java
 echo "Main Package Are Compiled!"
-
-echo "Running The Program!"
-echo ""
-clear
-
-java Main

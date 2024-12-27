@@ -1,14 +1,18 @@
-package database;
+package server;
 
+import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Date;
+import java.time.LocalDateTime;
 
 import menu.Files;
 
-public class DB {
-    final static String db_url = "jdbc:sqlite:eCommerce.db";
+public class DB_Implement implements DB_Interface, Serializable {
+    final static String db_url = "jdbc:sqlite:server/BiT_Store_Database.db";
 
-    public static void start(){
+    public void start() throws RemoteException{
             String sql;
 
             sql = "create table if not exists user ("+
@@ -49,18 +53,24 @@ public class DB {
                 }
     }
 
-    public static boolean exec_query(String sql){
+    @Override
+    public boolean exec_query(String sql) throws RemoteException {
+        Files.write_log_file("database_log", sql);
+
         try(Connection conn = DriverManager.getConnection(db_url)){
             Statement stmt = conn.createStatement();
             stmt.execute(sql);
             return true;
         } catch (Exception e){
-            Files.write_log_file(e);
+            Files.write_log_file("server_log", e);
             return false;
         }
     }
 
-    public static HashMap <String,String> select_query(String sql) {
+    @Override
+    public HashMap <String,String> select_query(String sql) throws RemoteException {
+        Files.write_log_file("database_log", sql);
+
         HashMap <String,String> row = new HashMap<String,String>();
 
         try(Connection conn = DriverManager.getConnection(db_url)){
@@ -79,12 +89,15 @@ public class DB {
 
             return row;
         } catch(Exception e){
-            Files.write_log_file(e);
+            Files.write_log_file("server_log", e);
             return null;
         }
     }
 
-    public static int count_query(String sql){
+    @Override
+    public int count_query(String sql) throws RemoteException {
+        Files.write_log_file("database_log", sql);
+
         try(Connection conn = DriverManager.getConnection(db_url)){
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -96,39 +109,32 @@ public class DB {
                     return 0;
                 }
         } catch(Exception e){
-            Files.write_log_file(e);
+            Files.write_log_file("server_log", e);
             return 0;
         }
     }
 
-    public static void display_query(String sql, String format, int separator){
+    @Override
+    public ResultSet get_result_set(String sql) throws RemoteException {
+        Files.write_log_file("database_log", sql);
+
         try(Connection conn = DriverManager.getConnection(db_url)){
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            ResultSetMetaData meta_data = rs.getMetaData();
-            int col_num = meta_data.getColumnCount();
-            String key, value;
-
-            for(int i = 1; i <= col_num; i++){
-                key = meta_data.getColumnName(i);
-                System.out.printf(format,key);
-            }
-
-            System.out.println();
-            System.out.println(new String(new char[separator]).replace("\0", "-"));
-
-            while (rs.next()) {
-                for(int i = 1; i <= col_num; i++){
-                    key = meta_data.getColumnName(i);
-                    value = rs.getString(key);
-    
-                    System.out.printf(format,value);
-                }
-                System.out.println();
-            }
+            return rs;
         } catch(Exception e){
-            Files.write_log_file(e);
+            Files.write_log_file("server_log", e);
+            return null;
         }
-    
+    }
+
+    @Override
+    public String server_connection(){
+        Date date1 = new Date();
+        LocalDateTime date2 = LocalDateTime.now();
+
+        String str = "Server @ " + date1 + " | " + date2;
+        System.out.println(str);
+        return str;
     }
 }

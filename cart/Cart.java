@@ -2,10 +2,8 @@ package cart;
 
 import java.util.HashMap;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
-import database.DB;
+import database.DB_Client;
 
 public class Cart {
     Scanner scanner = new Scanner(System.in);
@@ -101,7 +99,7 @@ public class Cart {
         for (String prdct_id : carts.keySet()) {
             sql = "select id, prdct_name, category, price from product where id='"+ prdct_id +"'";
             HashMap <String,String> result = new HashMap <String,String>();
-            result = DB.select_query(sql);
+            result = DB_Client.select_query(sql);
             Double total_price = 0.00d;
 
             System.out.printf("%-20s",result.get("id"));
@@ -132,7 +130,7 @@ public class Cart {
 
                     for (String prdct_id : carts.keySet()) {
                         sql = "insert into cart (usr_id,prdct_id,quantity) values ('"+ user_id +"','"+ prdct_id +"','"+ carts.get(prdct_id) +"')";
-                        if (!DB.exec_query(sql)) 
+                        if (!DB_Client.exec_query(sql)) 
                             is_inserted = false;
                     }
 
@@ -157,7 +155,7 @@ public class Cart {
             for (String prdct_id : carts.keySet()) {
                 sql = "select price from product where id='"+ prdct_id +"'";
                 HashMap <String,String> result = new HashMap <String,String>();
-                result = DB.select_query(sql);
+                result = DB_Client.select_query(sql);
 
                 single_price = result.get("price");
                 
@@ -176,12 +174,12 @@ public class Cart {
     public void cart_history(){
         System.out.println("Cart history are:");
         sql = "select u.usr_name, u.email, p.prdct_name, p.category, p.price, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id order by c.id desc";
-        DB.display_query(sql, "%-20s", 120);
+        DB_Client.display_query(sql, "%-20s", 120);
     }
 
     public void cart_history(String uid){
         System.out.println("Cart history are:");
         sql = "select p.prdct_name, p.category, p.price, c.quantity, c.reg_date from user u, product p ,cart c where c.usr_id = u.id and c.prdct_id = p.id and u.id = '"+ this.user_id +"' order by c.id desc";
-        DB.display_query(sql, "%-20s", 89);
+        DB_Client.display_query(sql, "%-20s", 89);
     }
 }

@@ -2,10 +2,8 @@ package cart;
 
 import java.util.HashMap;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
-import database.DB;
+import database.DB_Client;
 
 public class Balance {
     Scanner scanner = new Scanner(System.in);
@@ -45,7 +43,7 @@ public class Balance {
             money += temp;
             String sql = "update user set balance='"+money+"'";
 
-            if (DB.exec_query(sql)) {
+            if (DB_Client.exec_query(sql)) {
                 JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry! deposit money are faild!");
@@ -60,7 +58,7 @@ public class Balance {
     public static double getBalance(){
         String sql = "select balance from user where id='"+usr_id+"'";
         HashMap <String,String> result = new HashMap<String,String>();
-        result = DB.select_query(sql);
+        result = DB_Client.select_query(sql);
         
         try {
             money = Double.parseDouble(result.get("balance"));
@@ -76,7 +74,7 @@ public class Balance {
             Balance.money -= money;
             String sql = "update user set balance='"+money+"'";
             
-            if (DB.exec_query(sql)) {
+            if (DB_Client.exec_query(sql)) {
                 JOptionPane.showMessageDialog(null, "Successfully deposit your money!");
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry! deposit money are faild!");

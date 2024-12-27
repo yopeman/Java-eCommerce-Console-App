@@ -6,7 +6,7 @@ import menu.*;
 import product.Product;
 import cart.*;
 
-public class Customer extends User implements Menu_List {
+public class Customer extends User {
     public Customer(String id, String usr_name, String email, String pswd, String role, String address, String reg_date){
         this.id = id;
         this.usr_name = usr_name;
@@ -17,7 +17,6 @@ public class Customer extends User implements Menu_List {
         this.reg_date = reg_date;
     }
 
-    @Override
     public void menu(){
         Cart cart = new Cart(this.id);
         Product product = new Product();

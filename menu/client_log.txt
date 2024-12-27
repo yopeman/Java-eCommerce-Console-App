@@ -1,0 +1,6 @@
+[Fri Dec 27 04:25:03 UTC 2024 | 2024-12-27T04:25:03.332246494] :	 java.rmi.ConnectException: Connection refused to host: 127.0.0.1; nested exception is: 
+	java.net.ConnectException: Connection refused
+
+[Fri Dec 27 04:27:44 UTC 2024 | 2024-12-27T04:27:44.125705366] :	 java.rmi.UnmarshalException: error unmarshalling return; nested exception is: 
+	java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: org.sqlite.jdbc4.JDBC4ResultSet
+

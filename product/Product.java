@@ -1,10 +1,8 @@
 package product;
 
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
-import database.DB;
+import database.DB_Client;
 
 public class Product {
     Scanner scanner = new Scanner(System.in);
@@ -31,7 +29,7 @@ public class Product {
             price = price.trim();
 
             sql = "insert into product (prdct_name,category,desc,price) values ('"+prdct_name+"','"+category+"','"+desc+"','"+price+"')";
-            if(DB.exec_query(sql)){
+            if(DB_Client.exec_query(sql)){
                 JOptionPane.showMessageDialog(null, "Successfully product are inserted!");
                 return true;
             } else {
@@ -47,17 +45,17 @@ public class Product {
 
     public void display_category(){
         sql = "select min(id) as id, category from product group by category";
-        DB.display_query(sql, "%-20s", 30);
+        DB_Client.display_query(sql, "%-20s", 30);
     }
 
     public void display_product(){
         sql = "select * from product";
-        DB.display_query(sql, "%-20s", 120);
+        DB_Client.display_query(sql, "%-20s", 120);
     }
 
     public void display_product_by_category(String prdct_id){
         sql = "select * from product where category=(select category from product where id='"+prdct_id+"')";
-        DB.display_query(sql, "%-20s", 109);
+        DB_Client.display_query(sql, "%-20s", 109);
     }
 
     public void delete_product(){
@@ -71,7 +69,7 @@ public class Product {
 
         if (!prdct_id.isEmpty()) {
             sql = "delete from product where id='"+prdct_id+"'";
-            if (DB.exec_query(sql)) {
+            if (DB_Client.exec_query(sql)) {
                 JOptionPane.showMessageDialog(null, "Successfully product are deleted!");
             } else {
                 System.out.println("Product deletion are failed!");
@@ -93,7 +91,7 @@ public class Product {
 
                 if (!(prdct_name.isEmpty())) {
                     sql = "update product set prdct_name='"+prdct_name+"' where id='"+id+"'";
-                    if (!DB.exec_query(sql)) {
+                    if (!DB_Client.exec_query(sql)) {
                         System.out.println("Updating product information are failed!");
                     } 
                 }
@@ -103,7 +101,7 @@ public class Product {
 
                 if (!(category.isEmpty())) {
                     sql = "update product set category='"+category+"' where id='"+id+"'";
-                    if (!DB.exec_query(sql)) {
+                    if (!DB_Client.exec_query(sql)) {
                         System.out.println("Updating product information are failed!");
                     } 
                 }
@@ -113,7 +111,7 @@ public class Product {
 
                 if (!(price.isEmpty())) {
                     sql = "update product set price='"+price+"' where id='"+id+"'";
-                    if (!DB.exec_query(sql)) {
+                    if (!DB_Client.exec_query(sql)) {
                         System.out.println("Updating product information are failed!");
                     } 
                 }
@@ -123,7 +121,7 @@ public class Product {
 
                 if (!(desc.isEmpty())) {
                     sql = "update product set desc='"+desc+"' where id='"+id+"'";
-                    if (!DB.exec_query(sql)) {
+                    if (!DB_Client.exec_query(sql)) {
                         System.out.println("Updating product information are failed!");
                     } 
                 }
@@ -146,7 +144,7 @@ public class Product {
         }
         
         sql = "select * from product where id like '%"+ search_query +"%' or prdct_name like '%"+ search_query +"%' or category like '%"+ search_query +"%' or price like '%"+ search_query +"%' or desc like '%"+ search_query +"%' or reg_date like '%"+ search_query +"%'";
-        DB.display_query(sql, "%-20s", 109);
+        DB_Client.display_query(sql, "%-20s", 109);
         System.out.println();
     }
 }

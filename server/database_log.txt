@@ -1,0 +1,42 @@
+[Fri Dec 27 04:25:36 UTC 2024 | 2024-12-27T04:25:36.988082378] :	 create table if not exists user (id integer primary key autoincrement,usr_name text not null,email text not null unique,pswd text not null,address text not null,role text not null default 'user',balance float,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 04:25:37 UTC 2024 | 2024-12-27T04:25:37.825073643] :	 create table if not exists product (id integer primary key autoincrement,prdct_name text not null,category text not null,price float not null,desc text not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 04:25:37 UTC 2024 | 2024-12-27T04:25:37.827052639] :	 create table if not exists cart (id integer primary key autoincrement,usr_id integer not null,prdct_id integer not null,quantity integer not null,reg_date timestamp default current_timestamp)
+
+[Fri Dec 27 04:25:37 UTC 2024 | 2024-12-27T04:25:37.828592518] :	 select count(*) from user where role='admin'
+
+[Fri Dec 27 04:25:58 UTC 2024 | 2024-12-27T04:25:58.341017379] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 04:25:58 UTC 2024 | 2024-12-27T04:25:58.427056144] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 04:26:04 UTC 2024 | 2024-12-27T04:26:04.917129694] :	 select balance from user where id='2'
+
+[Fri Dec 27 04:26:19 UTC 2024 | 2024-12-27T04:26:19.171748758] :	 update user set balance='130.0'
+
+[Fri Dec 27 04:26:24 UTC 2024 | 2024-12-27T04:26:24.212559917] :	 select balance from user where id='2'
+
+[Fri Dec 27 04:26:28 UTC 2024 | 2024-12-27T04:26:28.343664311] :	 select balance from user where id='2'
+
+[Fri Dec 27 04:27:37 UTC 2024 | 2024-12-27T04:27:37.579178405] :	 select count(*) from user where email='admin@bitstore.com' and pswd='admin'
+
+[Fri Dec 27 04:27:37 UTC 2024 | 2024-12-27T04:27:37.599225598] :	 select * from user where email='admin@bitstore.com' limit 1
+
+[Fri Dec 27 04:27:43 UTC 2024 | 2024-12-27T04:27:43.953215920] :	 select id,usr_name,email,role,balance,address,reg_date from user
+
+[Fri Dec 27 04:32:06 UTC 2024 | 2024-12-27T04:32:06.962225137] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 04:32:07 UTC 2024 | 2024-12-27T04:32:07.120014399] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 04:32:10 UTC 2024 | 2024-12-27T04:32:10.514355296] :	 select balance from user where id='2'
+
+[Fri Dec 27 04:32:59 UTC 2024 | 2024-12-27T04:32:59.259942006] :	 select balance from user where id='2'
+
+[Fri Dec 27 04:33:05 UTC 2024 | 2024-12-27T04:33:05.257832962] :	 select count(*) from user where email='q' and pswd='q'
+
+[Fri Dec 27 04:33:05 UTC 2024 | 2024-12-27T04:33:05.324291962] :	 select * from user where email='q' limit 1
+
+[Fri Dec 27 04:33:07 UTC 2024 | 2024-12-27T04:33:07.333861413] :	 select balance from user where id='2'
+
+[Fri Dec 27 04:33:10 UTC 2024 | 2024-12-27T04:33:10.272678442] :	 select balance from user where id='2'
+
